@@ -1,0 +1,8 @@
+{
+  "name": "RBKProject",
+  "app_id": "ac56531e",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
