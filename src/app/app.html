@@ -1,1 +1,43 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="myContent" id="menu">
+    <ion-header>
+        <ion-navbar color="dark" >
+            <button  ion-button menuToggle>
+              <ion-icon name="menu"></ion-icon>
+            </button>
+          </ion-navbar>
+        
+    </ion-header>
+  
+    <ion-content>
+      <ion-list>
+        <button ion-item >
+          <h2 style="font-weight:bold">Calendar</h2>
+        </button>
+        <button ion-item >
+          <h2 style="font-weight:bold">agenda</h2>
+        </button>
+        <button ion-item >
+          <h2 style="font-weight:bold">Speakers</h2>
+        </button>
+        <button ion-item >
+          <h2 style="font-weight:bold">attendees</h2>
+        </button>
+        <button ion-item >
+          <h2 style="font-weight:bold" (click)="map()">Map</h2>
+        </button>
+        <button ion-item >
+          <h2 style="font-weight:bold">Sponsor</h2>
+        </button>
+        
+      </ion-list>
+    </ion-content>
+
+    <ion-footer> 
+      <button ion-item >
+        <h2 style="font-weight:bold">Sign Out</h2> 
+      </button>
+    </ion-footer>
+  </ion-menu>
+  
+  <ion-nav id="nav" #myContent [root]="rootPage"></ion-nav>
+ 
