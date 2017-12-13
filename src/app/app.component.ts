@@ -3,24 +3,32 @@ import { Platform, NavController, Nav, MenuController, LoadingController } from 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Geolocation } from '@ionic-native/geolocation';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 import { HomePage } from '../pages/home/home';
 import {MapPage} from '../pages/map/map';
 import { SignupPage } from '../pages/signup/signup';
 import { SigninPage } from '../pages/signin/signin';
+import { AgendaPage } from '../pages/agenda/agenda';
+import { AboutPage } from '../pages/about/about';
+import { SpeakersPage } from '../pages/speakers/speakers';
+import { SponsorPage } from '../pages/sponsor/sponsor';
+
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
 
-// rootPage:any = MapPage;
-rootPage:any = SignupPage;
+ rootPage:any = HomePage;
+//rootPage:any = SignupPage;
   @ViewChild(Nav) nav: Nav;
 
   constructor(platform: Platform, 
               statusBar: StatusBar, 
-              splashScreen: SplashScreen, 
+              splashScreen: SplashScreen,
+              angularFireAuth: AngularFireAuth, 
               // public loadingCtrl: LoadingController,
               public menu: MenuController ) {
     platform.ready().then(() => {
@@ -33,5 +41,26 @@ rootPage:any = SignupPage;
     this.menu.close();
     this.nav.push(MapPage);
   }
+
+  agenda(){
+    this.menu.close();
+    this.nav.push(AgendaPage);
+  }
+
+  about(){
+    this.menu.close();
+    this.nav.push(AboutPage);
+  }
+  
+  speakers(){
+    this.menu.close();
+    this.nav.push(SpeakersPage);
+  }
+
+  sponsor(){
+    this.menu.close();
+    this.nav.push(SponsorPage);
+  }
+
 }
 

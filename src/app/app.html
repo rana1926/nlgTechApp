@@ -10,23 +10,21 @@
   
     <ion-content>
       <ion-list>
-        <button ion-item >
-          <h2 style="font-weight:bold">Calendar</h2>
-        </button>
-        <button ion-item >
+
+        <button ion-item (click)="agenda()">
           <h2 style="font-weight:bold">agenda</h2>
         </button>
-        <button ion-item >
+        <button ion-item (click)='speakers()'>
           <h2 style="font-weight:bold">Speakers</h2>
         </button>
-        <button ion-item >
-          <h2 style="font-weight:bold">attendees</h2>
+        <button ion-item (click)="map()">
+          <h2 style="font-weight:bold" >Location</h2>
         </button>
-        <button ion-item >
-          <h2 style="font-weight:bold" (click)="map()">Map</h2>
-        </button>
-        <button ion-item >
+        <button ion-item (click)='sponsor()'>
           <h2 style="font-weight:bold">Sponsor</h2>
+        </button>
+        <button ion-item (click)='about()'>
+          <h2 style="font-weight:bold">About</h2>
         </button>
         
       </ion-list>

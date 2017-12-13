@@ -15,6 +15,10 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { SignupPage } from "../pages/signup/signup";
 import { SigninPage } from "../pages/signin/signin";
+import { AgendaPage } from '../pages/agenda/agenda';
+import { AboutPage } from '../pages/about/about';
+import { SpeakersPage } from '../pages/speakers/speakers';
+import { SponsorPage } from '../pages/sponsor/sponsor';
 
 
 var config = {
@@ -32,7 +36,11 @@ var config = {
     HomePage,
     SignupPage,
     SigninPage,
-    MapPage
+    MapPage,
+    AgendaPage,
+    AboutPage,
+    SpeakersPage,
+    SponsorPage
   ],
   imports: [
     BrowserModule,
@@ -47,7 +55,11 @@ var config = {
     HomePage,
     SignupPage,
     SigninPage,
-    MapPage
+    MapPage,
+    AgendaPage,
+    AboutPage,
+    SpeakersPage,
+    SponsorPage
   ],
   providers: [
     StatusBar,
