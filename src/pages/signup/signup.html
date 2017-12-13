@@ -1,26 +1,23 @@
+
 <ion-header>
-  <ion-navbar>
-    <ion-title>Sign up</ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  <ion-list>
+  
+    <ion-navbar>
+      <ion-title>signup</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <ion-list>
     <ion-item>
-      <ion-label floating>Email</ion-label>
-      <ion-input type="text"  [(ngModel)]="email"></ion-input>
+      <ion-input type="text" placeholder="Username" [(ngModel)]="name"></ion-input>
     </ion-item>
-
+  
     <ion-item>
-      <ion-label floating>Password</ion-label>
-      <ion-input type="password"  [(ngModel)]="password"></ion-input>
+      <ion-input type="Password" placeholder="Password" [(ngModel)]="password"></ion-input>
     </ion-item>
-
-    <ion-item>
-      <button ion-button block large (click)="register()">Sign up</button>      
-    </ion-item>
-    <ion-item>
-      <button ion-button block large (click)="navToSignin()">Sign in</button>      
-    </ion-item>
+    <button ion-button full (click)="signup()">SignUp</button>
+    <a href="#" (click)="goToSignin()">Signin</a>
   </ion-list>
-</ion-content>
+  </ion-content>
