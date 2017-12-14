@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import firebase from 'firebase';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { AngularFireAuth } from 'angularfire2/auth'
+import { AngularFireAuth } from 'angularfire2/auth';
+import { ResetPasswordPage } from '../reset-password/reset-password';
 
 /**
  * Generated class for the SigninPage page.
@@ -20,6 +21,7 @@ export class SigninPage {
   password
   uid
   constructor(
+    private alertCtrl: AlertController,
     public navCtrl: NavController, 
     public navParams: NavParams,
     public angularFireAuth: AngularFireAuth,
@@ -37,4 +39,10 @@ export class SigninPage {
       console.log('Hi')
     });
   }
+
+  goToResetPassword(): void {
+    this.navCtrl.push(ResetPasswordPage);
+  }
+
+  
 }
