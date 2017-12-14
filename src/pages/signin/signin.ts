@@ -5,18 +5,12 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { ResetPasswordPage } from '../reset-password/reset-password';
 
-/**
- * Generated class for the SigninPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @Component({
   selector: 'page-signin',
   templateUrl: 'signin.html',
 })
 export class SigninPage {
+
   name
   password
   uid
@@ -25,9 +19,7 @@ export class SigninPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     public angularFireAuth: AngularFireAuth,
-    public fireDB:AngularFireDatabase
-
-  ) {
+    public fireDB:AngularFireDatabase){
   }
 
   ionViewDidLoad() {
@@ -44,5 +36,5 @@ export class SigninPage {
     this.navCtrl.push(ResetPasswordPage);
   }
 
-  
+
 }

@@ -1,21 +1,21 @@
 import { Component } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import firebase from 'firebase';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { SigninPage } from '../signin/signin';
-
-/**
- * Generated class for the SignupPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { firestore } from 'firebase/app';
+import { FirebaseApp } from 'angularfire2';
+import { AuthProvider } from '../../providers/auth/auth';
+import { ProfilePage } from '../profile/profile';
+import { AttendeesPage } from '../attendees/attendees';
 
 @Component({
   selector: 'page-signup',
   templateUrl: 'signup.html',
 })
+
 export class SignupPage {
   name
   password
@@ -42,6 +42,7 @@ export class SignupPage {
 
   goToSignin(){
     this.navCtrl.push(SigninPage)
+
   }
 
 }
