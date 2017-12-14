@@ -25,6 +25,8 @@ import { ProfilePage } from '../pages/profile/profile';
 import { AttendeesPage } from '../pages/attendees/attendees';
 import { UsersProvider } from '../providers/users/users';
 import { PersonInfoPage } from '../pages/person-info/person-info';
+import { ResetPasswordPage } from '../pages/reset-password/reset-password';
+import { AuthData } from '../providers/auth-data/auth-data';
 
 const IonicPro = Pro.init('ac56531e', {
   appVersion: "0.0.1"
@@ -53,7 +55,8 @@ var config = {
     SponsorPage,
     ProfilePage,
     AttendeesPage,
-    PersonInfoPage
+    PersonInfoPage,
+    ResetPasswordPage
   ],
   imports: [
     BrowserModule,
@@ -75,8 +78,8 @@ var config = {
     SponsorPage,
     ProfilePage,
     AttendeesPage,
-    PersonInfoPage
-
+    PersonInfoPage,
+    ResetPasswordPage
   ],
   providers: [
     StatusBar,
@@ -86,7 +89,8 @@ var config = {
     UsersProvider,
     AuthProvider,
     AngularFireDatabase,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthData
   ]
 })
 export class AppModule {}

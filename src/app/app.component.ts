@@ -15,7 +15,7 @@ import { AboutPage } from '../pages/about/about';
 import { SpeakersPage } from '../pages/speakers/speakers';
 import { SponsorPage } from '../pages/sponsor/sponsor';
 import { AttendeesPage } from '../pages/attendees/attendees';
-
+import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 
 @Component({
   templateUrl: 'app.html'
