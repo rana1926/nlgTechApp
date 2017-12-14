@@ -14,7 +14,8 @@ import { AgendaPage } from '../pages/agenda/agenda';
 import { AboutPage } from '../pages/about/about';
 import { SpeakersPage } from '../pages/speakers/speakers';
 import { SponsorPage } from '../pages/sponsor/sponsor';
-
+import { AttendeesPage } from '../pages/attendees/attendees';
+import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 
 @Component({
   templateUrl: 'app.html'
@@ -36,7 +37,7 @@ export class MyApp {
       splashScreen.hide();
     });
   }
-  
+ 
   map(){
     this.menu.close();
     this.nav.push(MapPage);
@@ -61,6 +62,5 @@ export class MyApp {
     this.menu.close();
     this.nav.push(SponsorPage);
   }
-
 }
 

@@ -1,11 +1,5 @@
-<!--
-  Generated template for the SigninPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  
     <ion-navbar>
       <ion-title>signin</ion-title>
     </ion-navbar>
@@ -14,15 +8,22 @@
   
   
   <ion-content padding>
-      <ion-list>
-          <ion-item>
-            <ion-input type="text" placeholder="Username" [(ngModel)]="name"></ion-input>
-          </ion-item>
-        
-          <ion-item>
-            <ion-input type="Password" placeholder="Password" [(ngModel)]="password"></ion-input>
-          </ion-item>
-          <button ion-button full (click)="signin()">SignIn</button>
-        </ion-list>
+       <img src="http://static.tumblr.com/578c30623d74890c6a50c44686bb3e63/2m2kqbl/wXromxnb1/tumblr_static_a9cjz5t7hxc0w0w84oww0wcwk.png" style="display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 7em;
+    margin-top: 2em;"/>
+    <div style="color:#00bfbb; font-size: large; font-weight: bold;">Signin</div>
+    <ion-list no-lines>
+        <ion-item>
+          <ion-input type="text" placeholder="Email Address" [(ngModel)]="name"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-input type="Password" placeholder="Password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+        <button ion-button full (click)="signin()" style="background-color:#00bfbb">SignIn</button>
+        <br />
+        <a href="#" (click)="goToResetPassword()" style="color:#00bfbb">Reset Password</a>
+      </ion-list>
   </ion-content>
-  

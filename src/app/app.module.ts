@@ -19,7 +19,18 @@ import { AgendaPage } from '../pages/agenda/agenda';
 import { AboutPage } from '../pages/about/about';
 import { SpeakersPage } from '../pages/speakers/speakers';
 import { SponsorPage } from '../pages/sponsor/sponsor';
+import { Pro } from '@ionic/pro';
+import { AuthProvider } from '../providers/auth/auth';
+import { ProfilePage } from '../pages/profile/profile';
+import { AttendeesPage } from '../pages/attendees/attendees';
+import { UsersProvider } from '../providers/users/users';
+import { PersonInfoPage } from '../pages/person-info/person-info';
+import { ResetPasswordPage } from '../pages/reset-password/reset-password';
+import { AuthData } from '../providers/auth-data/auth-data';
 
+const IonicPro = Pro.init('ac56531e', {
+  appVersion: "0.0.1"
+});
 
 var config = {
   apiKey: "AIzaSyAkMIOVzxLuqJJPdTBElXqjaTVVhIU6BGE",
@@ -28,6 +39,7 @@ var config = {
   projectId: "nlgtechapp",
   storageBucket: "nlgtechapp.appspot.com",
   messagingSenderId: "720892634155"
+
 };
 
 @NgModule({
@@ -40,7 +52,11 @@ var config = {
     AgendaPage,
     AboutPage,
     SpeakersPage,
-    SponsorPage
+    SponsorPage,
+    ProfilePage,
+    AttendeesPage,
+    PersonInfoPage,
+    ResetPasswordPage
   ],
   imports: [
     BrowserModule,
@@ -59,15 +75,22 @@ var config = {
     AgendaPage,
     AboutPage,
     SpeakersPage,
-    SponsorPage
+    SponsorPage,
+    ProfilePage,
+    AttendeesPage,
+    PersonInfoPage,
+    ResetPasswordPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     GoogleMaps,
     Geolocation,
+    UsersProvider,
+    AuthProvider,
     AngularFireDatabase,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthData
   ]
 })
 export class AppModule {}

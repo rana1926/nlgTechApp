@@ -1,6 +1,7 @@
 {
+
   "name": "RBK",
-  "app_id": "",
+  "app_id": "ac56531e",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
