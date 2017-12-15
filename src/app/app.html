@@ -12,7 +12,7 @@
       <ion-list>
 
         <button ion-item (click)="agenda()">
-          <h2 style="font-weight:bold">agenda</h2>
+          <h2 style="font-weight:bold">Agenda</h2>
         </button>
         <button ion-item (click)='speakers()'>
           <h2 style="font-weight:bold">Speakers</h2>
@@ -31,7 +31,7 @@
     </ion-content>
 
     <ion-footer> 
-      <button ion-item >
+      <button ion-item (click)="signout()" >
         <h2 style="font-weight:bold">Sign Out</h2> 
       </button>
     </ion-footer>

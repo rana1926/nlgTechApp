@@ -12,7 +12,6 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/dat
 
 import {MapPage} from '../pages/map/map'
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { SignupPage } from "../pages/signup/signup";
 import { SigninPage } from "../pages/signin/signin";
 import { AgendaPage } from '../pages/agenda/agenda';
@@ -32,20 +31,18 @@ const IonicPro = Pro.init('ac56531e', {
   appVersion: "0.0.1"
 });
 
-var config = {
-  apiKey: "AIzaSyAkMIOVzxLuqJJPdTBElXqjaTVVhIU6BGE",
-  authDomain: "nlgtechapp.firebaseapp.com",
-  databaseURL: "https://nlgtechapp.firebaseio.com",
-  projectId: "nlgtechapp",
-  storageBucket: "nlgtechapp.appspot.com",
-  messagingSenderId: "720892634155"
-
+var firebaseConfig = {
+  apiKey: "AIzaSyBp9MJ8dQnen3MIl9n-U8z35xSkaqr3xHQ",
+  authDomain: "nlg-dev.firebaseapp.com",
+  databaseURL: "https://nlg-dev.firebaseio.com",
+  projectId: "nlg-dev",
+  storageBucket: "nlg-dev.appspot.com",
+  messagingSenderId: "736492675148"
 };
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
     SignupPage,
     SigninPage,
     MapPage,
@@ -61,14 +58,13 @@ var config = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(config),
+    AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
     SignupPage,
     SigninPage,
     MapPage,

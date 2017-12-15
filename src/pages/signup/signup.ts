@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import firebase from 'firebase';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -11,38 +10,35 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { ProfilePage } from '../profile/profile';
 import { AttendeesPage } from '../attendees/attendees';
 
+
 @Component({
   selector: 'page-signup',
   templateUrl: 'signup.html',
 })
 
 export class SignupPage {
-  name
-  password
-  uid
+  email;
+  password;
   constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams, 
-    public angularFireAuth: AngularFireAuth, 
-    public fireDB:AngularFireDatabase
+    private navCtrl: NavController, 
+    private navParams: NavParams, 
+    private angularFireAuth: AngularFireAuth, 
+    private fireDB:AngularFireDatabase,
+    private authProvider:AuthProvider
   ) {
-    
+    this.email = '@s.com'
+    this.password = '00000000';    
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SignupPage');
-  }
-
-  signup(){
-    this.angularFireAuth.auth.createUserWithEmailAndPassword(this.name, this.password).then(response => {this.fireDB.database.ref('users/' + response.uid).set(response.uid)
-       }).catch(function(error) {
-      console.log(error)
+  signup() {
+    this.authProvider.registerUser(this.email, this.password)
+    .then(() => this.navCtrl.setRoot(ProfilePage)).catch(function(error) {
+      console.error(error)
     });
   }
 
-  goToSignin(){
+  goToSignin() {
     this.navCtrl.push(SigninPage)
-
   }
 
 }
