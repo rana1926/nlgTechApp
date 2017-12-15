@@ -4,37 +4,35 @@ import firebase from 'firebase';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { ResetPasswordPage } from '../reset-password/reset-password';
+import { AuthProvider } from '../../providers/auth/auth';
+import { AttendeesPage } from '../attendees/attendees';
 
 @Component({
   selector: 'page-signin',
   templateUrl: 'signin.html',
 })
 export class SigninPage {
-
-  name
-  password
-  uid
+  email;
+  password;
+  uid;
   constructor(
     private alertCtrl: AlertController,
     public navCtrl: NavController, 
     public navParams: NavParams,
     public angularFireAuth: AngularFireAuth,
-    public fireDB:AngularFireDatabase){
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SigninPage');
+    public fireDB:AngularFireDatabase,
+    public authProvider:AuthProvider){
+      this.email = 'ss@s.com';
+      this.password = '00000000';
   }
   
-  signin(){
-    this.angularFireAuth.auth.createUserWithEmailAndPassword(this.name, this.password).then(response => this.uid = response.uid).catch(function(error) {
-      console.log('Hi')
+  signin() {
+    this.authProvider.login(this.email, this.password).then(() => this.navCtrl.setRoot(AttendeesPage)).catch(function(error) {
+      console.error(error);
     });
   }
 
   goToResetPassword(): void {
     this.navCtrl.push(ResetPasswordPage);
   }
-
-
 }
