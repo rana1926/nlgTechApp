@@ -4,7 +4,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { UsersProvider } from '../../providers/users/users';
 import { Subscription } from 'rxjs/Subscription';
 import { PersonInfoPage } from '../person-info/person-info';
-import { SigninPage } from '../../../../../../../usr/share/code/resources/app/extensions/node_modules/typescript/lib/lib.dom';
+
 
 @Component({
   selector: 'page-attendees',
