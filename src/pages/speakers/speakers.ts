@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import firebase from 'firebase';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 /**
  * Generated class for the SpeakersPage page.
@@ -13,12 +16,19 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'speakers.html',
 })
 export class SpeakersPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  
+  speakerList
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public angularFireAuth: AngularFireAuth,
+              public fireDB:AngularFireDatabase) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SpeakersPage');
+    this.fireDB.list('/speakers').valueChanges().subscribe(res => {
+      this.speakerList = res;
+    });
   }
 
 }

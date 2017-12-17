@@ -1,38 +1,39 @@
 <ion-menu [content]="myContent" id="menu">
     <ion-header>
-        <ion-navbar color="dark" >
+        <ion-navbar color="nlgen" >
             <button  ion-button menuToggle>
               <ion-icon name="menu"></ion-icon>
+              Pages
             </button>
           </ion-navbar>
         
     </ion-header>
-  
-    <ion-content>
+ 
+    <ion-content style="background-color:#00bfbb">
       <ion-list>
 
-        <button ion-item (click)="agenda()">
-          <h2 style="font-weight:bold">Agenda</h2>
+        <button style="background-color:#00bfbb" ion-item (click)="agenda()">
+          <h2 style="font-weight:bold; color:aliceblue">Agenda</h2>
         </button>
-        <button ion-item (click)='speakers()'>
-          <h2 style="font-weight:bold">Speakers</h2>
+        <button style="background-color:#00bfbb" ion-item (click)='speakers()'>
+          <h2 style="font-weight:bold; color:aliceblue">Speakers</h2>
         </button>
-        <button ion-item (click)="map()">
-          <h2 style="font-weight:bold" >Location</h2>
+        <button style="background-color:#00bfbb" ion-item (click)="map()">
+          <h2 style="font-weight:bold; color:aliceblue " >Location</h2>
         </button>
-        <button ion-item (click)='sponsor()'>
-          <h2 style="font-weight:bold">Sponsor</h2>
+        <button style="background-color:#00bfbb" ion-item (click)='sponsor()'>
+          <h2 style="font-weight:bold; color:aliceblue">Sponsor</h2>
         </button>
-        <button ion-item (click)='about()'>
-          <h2 style="font-weight:bold">About</h2>
+        <button style="background-color:#00bfbb" ion-item (click)='about()'>
+          <h2 style="font-weight:bold; color:aliceblue">About</h2>
         </button>
         
       </ion-list>
     </ion-content>
 
     <ion-footer> 
-      <button ion-item (click)="signout()" >
-        <h2 style="font-weight:bold">Sign Out</h2> 
+      <button style="background-color:#00bfbb" ion-item (click)="signout()" >
+        <h2 style="font-weight:bold; color:aliceblue">Sign Out</h2> 
       </button>
     </ion-footer>
   </ion-menu>
