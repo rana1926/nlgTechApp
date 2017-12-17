@@ -6,25 +6,20 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>about</ion-title>
+  <ion-navbar color="nlgen">
+    <ion-title>ABOUT</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <img align="middle" src="https://static1.squarespace.com/static/5836c2c22994ca2c6bbdd1d3/t/5a144d3924a694af717d1943/1512574985581/?format=1500w">
+  <img *ngIf="items" align="middle" src="https://static1.squarespace.com/static/5836c2c22994ca2c6bbdd1d3/t/5a144d3924a694af717d1943/1512574985581/?format=1500w">
   <br>
   <br>
   <div>
-  The Syrian and Iraqi conflicts are the biggest humanitarian crises of our time. Over 12 million people have been displaced by over six years of war in Syria -  five million of whom have fled fleeing to neighbouring countries, including Iraq, Jordan, Lebanon, Turkey, and Egypt. The crisis in Iraq has also seen 3.4 million people internally displaced and 11 million now in need of humanitarian assistance.
-  
-  More than one third of Syrian and Iraqi refugees are between 10 and 24 years old. There is an entire generation of young people living in conflict and suffering displacement. These young people are critical to building the future of the region, but they need our support to access education, dignified livelihoods, participate in society, and rebuild their communities.
-  
-  No Lost Generation is a multi-agency initiative co-led by UNICEF, Mercy Corps, Save the Children, and World Vision, focused on supporting children and youth affected by the Syria and Iraq conflicts. The initiative comprises programming and advocacy across Syria, Iraq, Lebanon, Jordan, Turkey, and Egypt.
-  
-  No Lost Generation brings together over 100 agencies who are working to prevent a lost generation of children and young people. These partners are working to achieve agreed outcomes essential for the education, protection, wellbeing and future of children and young people affected by these conflicts. These outcomes fall under three pillars: Education, Child Protection and Adolescents & Youth.
+    {{items}}
+  <!-- Child Protection and Adolescents & Youth. -->
 </div>
   
 </ion-content>

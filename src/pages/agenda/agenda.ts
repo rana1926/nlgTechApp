@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
+import firebase from 'firebase';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { Console } from '@angular/core/src/console';
 /**
  * Generated class for the AgendaPage page.
  *
@@ -13,12 +16,26 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'agenda.html',
 })
 export class AgendaPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    
+  items
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public angularFireAuth: AngularFireAuth,
+              public fireDB:AngularFireDatabase
+            ) {
+              
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AgendaPage');
+    this.fireDB.list('/agenda').valueChanges().subscribe(res => {
+      this.items = res;
+    });
+    
+     
+    // Console.log(itemsRef);
   }
 
+
+  
 }

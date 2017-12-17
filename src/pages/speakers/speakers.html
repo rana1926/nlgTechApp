@@ -6,8 +6,8 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>speakers</ion-title>
+  <ion-navbar color="nlgen">
+    <ion-title>SPEAKERS</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,20 +16,12 @@
 <ion-content padding>
 
   <ion-list>
-    <ion-item>
+    <ion-item  *ngFor="let speaker of speakerList">
       <ion-thumbnail item-start>
-        <img src="img/thumbnil-totoro.png">
+        <img src={{speaker.img}}}>
       </ion-thumbnail>
-      <h2>DR.ALI</h2>
-      <p> job title</p>
-    </ion-item>
-
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img src="img/thumbnail-totoo.png">
-      </ion-thumbnail>
-      <h2>DR.aya</h2>
-      <p> job title</p>
+      <h2>{{speaker.name}}}</h2>
+      <p>{{speaker.job}}</p>
     </ion-item>
 
   </ion-list>

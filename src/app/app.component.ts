@@ -21,6 +21,7 @@ import { AuthProvider } from '../providers/auth/auth';
   templateUrl: 'app.html'
 })
 export class MyApp {
+  //rootPage:any =AgendaPage;
   rootPage:any = SignupPage;
   @ViewChild(Nav) nav: Nav;
 
