@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
-import { LoginPage } from '../login/login';
 import { UsersProvider } from '../../providers/users/users';
 import { Subscription } from 'rxjs/Subscription';
 import { PersonInfoPage } from '../person-info/person-info';
+
 
 @Component({
   selector: 'page-attendees',
@@ -30,10 +30,6 @@ export class AttendeesPage {
 
   showPerson(person) {
     this.navCtrl.push(PersonInfoPage, {person: person});
-  }
-  
-  signout() {
-    this._authProvider.signout().then(() => this.navCtrl.setRoot(LoginPage)).catch(console.error);
   }
   
   ionViewWillLeave() {

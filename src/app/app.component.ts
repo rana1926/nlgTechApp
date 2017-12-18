@@ -6,7 +6,6 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 
-import { HomePage } from '../pages/home/home';
 import {MapPage} from '../pages/map/map';
 import { SignupPage } from '../pages/signup/signup';
 import { SigninPage } from '../pages/signin/signin';
@@ -16,51 +15,62 @@ import { SpeakersPage } from '../pages/speakers/speakers';
 import { SponsorPage } from '../pages/sponsor/sponsor';
 import { AttendeesPage } from '../pages/attendees/attendees';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
+import { AuthProvider } from '../providers/auth/auth';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-
- rootPage:any = HomePage;
-//rootPage:any = SignupPage;
+  //rootPage:any =AgendaPage;
+  rootPage:any = SignupPage;
   @ViewChild(Nav) nav: Nav;
 
-  constructor(platform: Platform, 
-              statusBar: StatusBar, 
-              splashScreen: SplashScreen,
-              angularFireAuth: AngularFireAuth, 
-              // public loadingCtrl: LoadingController,
-              public menu: MenuController ) {
+  constructor(
+    private platform: Platform, 
+    private statusBar: StatusBar, 
+    private splashScreen: SplashScreen,
+    private angularFireAuth: AngularFireAuth, 
+    private menu: MenuController,
+    private _authProvider: AuthProvider,
+    ) {
     platform.ready().then(() => {
       statusBar.styleDefault();
       splashScreen.hide();
     });
   }
  
-  map(){
+  map() {
     this.menu.close();
     this.nav.push(MapPage);
   }
 
-  agenda(){
+  agenda() {
     this.menu.close();
     this.nav.push(AgendaPage);
   }
 
-  about(){
+  about() {
     this.menu.close();
     this.nav.push(AboutPage);
   }
   
-  speakers(){
+  speakers() {
     this.menu.close();
     this.nav.push(SpeakersPage);
   }
 
-  sponsor(){
+  sponsor() {
     this.menu.close();
     this.nav.push(SponsorPage);
+  }
+
+  signout() {
+    this._authProvider.signout()
+      .then(() => {
+        this.nav.setRoot(SigninPage);
+        this.menu.close();
+      })
+      .catch(console.error);
   }
 }
 
