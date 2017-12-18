@@ -15,6 +15,7 @@ import { SignupPage } from "../pages/signup/signup";
 import { SigninPage } from "../pages/signin/signin";
 import { AgendaPage } from '../pages/agenda/agenda';
 import { AboutPage } from '../pages/about/about';
+import { ChatPage } from '../pages/chat/chat';
 import { SpeakersPage } from '../pages/speakers/speakers';
 import { SponsorPage } from '../pages/sponsor/sponsor';
 import { Pro } from '@ionic/pro';
@@ -29,6 +30,7 @@ import { PersonalProfViewPage } from "../pages/personal-prof-view/personal-prof-
 import { UpdateProfilePage } from '../pages/update-profile/update-profile';
 import { CamProvider } from '../providers/cam/cam';
 import { Camera } from '@ionic-native/camera';
+import { ChatsProvider } from '../providers/chat/chat-provider';
 
 const IonicPro = Pro.init('ac56531e', {
   appVersion: "0.0.1"
@@ -60,6 +62,7 @@ var firebaseConfig = {
     ResetPasswordPage,
     RegProfilePage,
     UpdateProfilePage,
+    ChatPage
   ],
   imports: [
     BrowserModule,
@@ -84,6 +87,7 @@ var firebaseConfig = {
     ResetPasswordPage,
     RegProfilePage,
     UpdateProfilePage,
+    ChatPage
   ],
   providers: [
     StatusBar,
