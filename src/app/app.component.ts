@@ -22,7 +22,6 @@ import { PersonalProfViewPage } from '../pages/personal-prof-view/personal-prof-
 import { UpdateProfilePage } from '../pages/update-profile/update-profile';
 import { ChatPage } from '../pages/chat/chat';
 
-
 @Component({
   templateUrl: 'app.html'
 })
