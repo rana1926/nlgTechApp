@@ -7,8 +7,8 @@
 
 <ion-content class="list-avatar-page">
 	<ion-searchbar (ionInput)="findUsers($event)"></ion-searchbar>
-	<ion-list>
-		<ion-item *ngFor="let user of users" (click)="showPerson(user)">
+	<ion-list no-lines>
+		<ion-item *ngFor="let user of users" (click)="initChat(user)">
 			<ion-avatar item-start>
 				<img src="https://qph.ec.quoracdn.net/main-thumb-100309-50-vctkfcvpnbuhpcpeiupepzbnppopgbph.jpeg">
 			</ion-avatar>
