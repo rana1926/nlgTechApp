@@ -30,7 +30,7 @@ import { PersonalProfViewPage } from "../pages/personal-prof-view/personal-prof-
 import { UpdateProfilePage } from '../pages/update-profile/update-profile';
 import { CamProvider } from '../providers/cam/cam';
 import { Camera } from '@ionic-native/camera';
-import { ChatsProvider } from '../providers/chat/chat-provider';
+import { ChatProvider } from '../providers/chat/chat';
 
 const IonicPro = Pro.init('ac56531e', {
   appVersion: "0.0.1"
@@ -100,7 +100,8 @@ var firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthData,
     CamProvider,
-    Camera
+    Camera,
+    ChatProvider
   ]
 })
 
