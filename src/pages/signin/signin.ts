@@ -6,11 +6,13 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { ResetPasswordPage } from '../reset-password/reset-password';
 import { AuthProvider } from '../../providers/auth/auth';
 import { AttendeesPage } from '../attendees/attendees';
+import { AgendaPage } from '../agenda/agenda';
 
 @Component({
   selector: 'page-signin',
   templateUrl: 'signin.html',
 })
+
 export class SigninPage {
   email;
   password;
@@ -22,12 +24,12 @@ export class SigninPage {
     public angularFireAuth: AngularFireAuth,
     public fireDB:AngularFireDatabase,
     public authProvider:AuthProvider){
-      this.email = 'ss@s.com';
-      this.password = '00000000';
+      this.email = 'dana@gmail.com';
+      this.password = '12345678';
   }
   
   signin() {
-    this.authProvider.login(this.email, this.password).then(() => this.navCtrl.setRoot(AttendeesPage)).catch(function(error) {
+    this.authProvider.login(this.email, this.password).then(() => this.navCtrl.setRoot(AgendaPage)).catch(function(error) {
       console.error(error);
     });
   }
@@ -35,4 +37,5 @@ export class SigninPage {
   goToResetPassword(): void {
     this.navCtrl.push(ResetPasswordPage);
   }
+
 }

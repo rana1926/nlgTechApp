@@ -26,6 +26,7 @@ import { UsersProvider } from '../providers/users/users';
 import { PersonInfoPage } from '../pages/person-info/person-info';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { AuthData } from '../providers/auth-data/auth-data';
+import { EditprofilePage } from '../pages/editprofile/editprofile';
 
 const IonicPro = Pro.init('ac56531e', {
   appVersion: "0.0.1"
@@ -53,7 +54,9 @@ var firebaseConfig = {
     ProfilePage,
     AttendeesPage,
     PersonInfoPage,
-    ResetPasswordPage
+    ResetPasswordPage,
+    EditprofilePage,
+    
   ],
   imports: [
     BrowserModule,
@@ -75,7 +78,9 @@ var firebaseConfig = {
     ProfilePage,
     AttendeesPage,
     PersonInfoPage,
-    ResetPasswordPage
+    ResetPasswordPage,
+    EditprofilePage,
+    
   ],
   providers: [
     StatusBar,
