@@ -6,33 +6,36 @@
 
 </ion-header>
 
-
 <ion-content>
-  <div id="grid">
-    <div id="picDiv">
-      <img ion-item id="profImg" src="https://qph.ec.quoracdn.net/main-thumb-100309-50-vctkfcvpnbuhpcpeiupepzbnppopgbph.jpeg">
-    </div>
-    <ion-list inset>
-      <ion-item>
-        <ion-label>First Name</ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Last Name</ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Age</ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Position:</ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Description:</ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
-    </ion-list>
-  </div>
+  <img *ngIf="picURL" id="profImg" [src]="picURL">
+  <button ion-fab mini color=nlgen id="camButt" (click)=selectSrc()>
+    <ion-icon name="camera"></ion-icon>
+  </button>
+
+  <ion-list id="list">
+    <ion-item>
+      <ion-label>First Name</ion-label>
+      <ion-input [(ngModel)]="user.firstName" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Last Name</ion-label>
+      <ion-input [(ngModel)]="user.lastName" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Age</ion-label>
+      <ion-input [(ngModel)]="user.age" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Position:</ion-label>
+      <ion-input [(ngModel)]="user.position" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Description:</ion-label>
+      <ion-input [(ngModel)]="user.description" type="text"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <button full round ion-button margin-bottom=1em (click)="goToPage('saved')" color=nlgen>Save</button>
+  <button full round ion-button (click)="goToPage('cancel')" color=nlgen>Cancel</button>
+
 </ion-content>

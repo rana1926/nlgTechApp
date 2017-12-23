@@ -9,7 +9,6 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 
-
 import {MapPage} from '../pages/map/map'
 import { MyApp } from './app.component';
 import { SignupPage } from "../pages/signup/signup";
@@ -28,10 +27,13 @@ import { AuthData } from '../providers/auth-data/auth-data';
 import { RegProfilePage } from '../pages/reg-profile/reg-profile';
 import { PersonalProfViewPage } from "../pages/personal-prof-view/personal-prof-view";
 import { UpdateProfilePage } from '../pages/update-profile/update-profile';
+import { CamProvider } from '../providers/cam/cam';
+import { Camera } from '@ionic-native/camera';
 
 const IonicPro = Pro.init('ac56531e', {
   appVersion: "0.0.1"
 });
+
 PersonalProfViewPage
 var firebaseConfig = {
   apiKey: "AIzaSyBp9MJ8dQnen3MIl9n-U8z35xSkaqr3xHQ",
@@ -92,7 +94,9 @@ var firebaseConfig = {
     AuthProvider,
     AngularFireDatabase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthData
+    AuthData,
+    CamProvider,
+    Camera
   ]
 })
 

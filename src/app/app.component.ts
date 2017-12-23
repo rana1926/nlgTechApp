@@ -57,7 +57,7 @@ export class MyApp {
               this.userName = this.usersin[0].firstName + ' ' + this.usersin[0].lastName;
             }
           });
-        }, 2000);
+        }, 4000);
       }
       catch(err) {
         console.error(err);
@@ -88,8 +88,7 @@ export class MyApp {
   signout() {
     this._authProvider.signout()
       .then(() => {
-        this.nav.setRoot(SigninPage);
-        this.menu.close();
+        this.menu.close().then(() => this.nav.setRoot(SigninPage));
       })
       .catch(console.error);
   }

@@ -7,9 +7,7 @@
 </ion-header>
 
 <ion-content padding>
-  <div id="picDiv">
-    <img ion-item id="profImg" src="https://qph.ec.quoracdn.net/main-thumb-100309-50-vctkfcvpnbuhpcpeiupepzbnppopgbph.jpeg">
-  </div>
+
   <ion-list>
     <ion-item>
       <ion-label floating>First Name</ion-label>
@@ -36,7 +34,6 @@
       <ion-label floating style="font-size:75%">What do you want people to know about you!</ion-label>      
       <ion-input (input)="checkFields()" type="text" [(ngModel)]="profile.description"></ion-input>
     </ion-item>
-
 
     <button ion-button block large (click)="editProfileInfo()" style="background-color:#00bfbb; margin-top:2em" [disabled]="emptyFields">Continue</button>
 

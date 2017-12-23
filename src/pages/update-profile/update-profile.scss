@@ -9,10 +9,21 @@ page-update-profile {
   }
 
   #profImg {
+    display: block;
     border-radius: 50%;
+    width: 15em;
+    height: 15em;
+    margin: auto;
   }
 
   #picDiv {
-    background-color: beige;
+    // background-color: beige;
+    margin-bottom: 0px;
+  }
+
+  #camButt {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    display: block;
   }
 }

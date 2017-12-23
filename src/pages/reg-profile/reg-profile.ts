@@ -13,7 +13,6 @@ import { AgendaPage } from '../agenda/agenda';
 export class RegProfilePage {
 
   emptyFields: boolean = true;
-  
   profile = {
     firstName: null,
     lastName: null,

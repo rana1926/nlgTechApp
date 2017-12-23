@@ -5,6 +5,7 @@ import { AboutPage } from'../about/about'
 import firebase from 'firebase';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { UpdateProfilePage } from '../update-profile/update-profile';
+import { CamProvider } from '../../providers/cam/cam';
 
 @Component({
   selector: 'page-personal-prof-view',
@@ -15,11 +16,13 @@ export class PersonalProfViewPage {
   userEmail;
   userInfo;
   userName;
+  profilePicURL;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private _authProvider: AuthProvider,
-    public fireDB:AngularFireDatabase) {
+    public fireDB:AngularFireDatabase,
+    public _camProvider: CamProvider) {
   }
   
   ionViewDidLoad() {
@@ -31,10 +34,12 @@ export class PersonalProfViewPage {
         this.userName = this.userInfo.firstName + ' ' + this.userInfo.lastName;
       }
     });
+    this._camProvider.getPicture().then(res => {
+      this.profilePicURL = res;
+    });
   }
 
-  editProfile(){
-    // console.log(this.userInfo);
+  editProfile() {
     this.navCtrl.push(UpdateProfilePage, {user: this.userInfo});
   }
 }

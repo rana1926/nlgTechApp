@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { AuthProvider } from '../auth/auth';
 
 @Injectable()
 export class UsersProvider {
 
   constructor(
-    private _angularFireDatabase: AngularFireDatabase) {
-    }
+    private _angularFireDatabase: AngularFireDatabase,
+    private _authProvider: AuthProvider) {
+  }
   
   getAttendees() {
     return this._angularFireDatabase.list('users').valueChanges();
@@ -19,4 +21,9 @@ export class UsersProvider {
   //     return user.firstName + ' ' + user.lastName;
   //   })
   // }
+
+  updateUserInfo(user) {
+    let uid = this._authProvider.getUserAuth().uid;
+    return this._angularFireDatabase.database.ref('users/' + uid).update(user);
+  }
 }
