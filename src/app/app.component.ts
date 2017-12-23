@@ -46,17 +46,19 @@ export class MyApp {
       splashScreen.hide();
       try {
         setTimeout(() => {
-          this.userEmail = this._authProvider.getUserAuth().email;
-          this.fireDB.list('/users').valueChanges().subscribe( data => {
-            this.usersin = data.filter(user => {
-              if(user['email']) {
-                return user['email'] === this.userEmail
+          if(this._authProvider.getUserAuth() !== null) {
+            this.userEmail = this._authProvider.getUserAuth().email;
+            this.fireDB.list('/users').valueChanges().subscribe( data => {
+              this.usersin = data.filter(user => {
+                if(user['email']) {
+                  return user['email'] === this.userEmail
+                }
+              });
+              if(this.usersin!==[]) {
+                this.userName = this.usersin[0].firstName + ' ' + this.usersin[0].lastName;
               }
             });
-            if(this.usersin!==[]) {
-              this.userName = this.usersin[0].firstName + ' ' + this.usersin[0].lastName;
-            }
-          });
+          }
         }, 4000);
       }
       catch(err) {
