@@ -1,0 +1,29 @@
+page-update-profile {
+
+  #grid {
+    display: grid;
+    height:100%;
+    grid-template-columns: 200px;
+    grid-template-rows: repeat(6, 1fr);
+    background-color: azure;
+  }
+
+  #profImg {
+    display: block;
+    border-radius: 50%;
+    width: 15em;
+    height: 15em;
+    margin: auto;
+  }
+
+  #picDiv {
+    // background-color: beige;
+    margin-bottom: 0px;
+  }
+
+  #camButt {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    display: block;
+  }
+}

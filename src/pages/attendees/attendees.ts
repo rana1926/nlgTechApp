@@ -14,17 +14,37 @@ export class AttendeesPage {
 
   private usersObservable: Subscription;
   users = [];
-  constructor(
+  filteredUsers = [];
+  searchQuery = '';
+
+  constructor (
     public navCtrl: NavController,
     public navParams: NavParams,
     private _authProvider: AuthProvider,
-    private _usersProvider: UsersProvider) {
-      this.getUsers();
+    private _usersProvider: UsersProvider
+  ) {
+    this.getUsers();
+  }
+
+  filterUsers() {
+    if(this.searchQuery!='') {
+      this.filteredUsers = this.users.filter(query => query.firstName.toLowerCase().includes(this.searchQuery.toLowerCase()) || query.lastName.includes(this.searchQuery.toLowerCase()));
+    this.sortUsers();      
+    } else {
+      this.filteredUsers = this.users;
+    this.sortUsers();      
+    }
+  }
+
+  sortUsers() {
+    this.users = this.users.sort((a,b) => b.firstName - a.firstName);
+    this.filteredUsers = this.filteredUsers.sort((a,b) => b.firstName - a.firstName);
   }
 
   getUsers() {
     this.usersObservable = this. _usersProvider.getAttendees().subscribe(users => {
       this.users = users;
+      this.filteredUsers = users;
    });
   }
 
@@ -36,6 +56,5 @@ export class AttendeesPage {
     if(!!this.usersObservable) {
       this.usersObservable.unsubscribe();
     }
-    
   }
 }

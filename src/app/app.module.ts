@@ -9,7 +9,6 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 
-
 import {MapPage} from '../pages/map/map'
 import { MyApp } from './app.component';
 import { SignupPage } from "../pages/signup/signup";
@@ -20,18 +19,22 @@ import { SpeakersPage } from '../pages/speakers/speakers';
 import { SponsorPage } from '../pages/sponsor/sponsor';
 import { Pro } from '@ionic/pro';
 import { AuthProvider } from '../providers/auth/auth';
-import { ProfilePage } from '../pages/profile/profile';
 import { AttendeesPage } from '../pages/attendees/attendees';
 import { UsersProvider } from '../providers/users/users';
 import { PersonInfoPage } from '../pages/person-info/person-info';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { AuthData } from '../providers/auth-data/auth-data';
-import { EditprofilePage } from '../pages/editprofile/editprofile';
+import { RegProfilePage } from '../pages/reg-profile/reg-profile';
+import { PersonalProfViewPage } from "../pages/personal-prof-view/personal-prof-view";
+import { UpdateProfilePage } from '../pages/update-profile/update-profile';
+import { CamProvider } from '../providers/cam/cam';
+import { Camera } from '@ionic-native/camera';
 
 const IonicPro = Pro.init('ac56531e', {
   appVersion: "0.0.1"
 });
 
+PersonalProfViewPage
 var firebaseConfig = {
   apiKey: "AIzaSyBp9MJ8dQnen3MIl9n-U8z35xSkaqr3xHQ",
   authDomain: "nlg-dev.firebaseapp.com",
@@ -51,12 +54,12 @@ var firebaseConfig = {
     AboutPage,
     SpeakersPage,
     SponsorPage,
-    ProfilePage,
+    PersonalProfViewPage,
     AttendeesPage,
     PersonInfoPage,
     ResetPasswordPage,
-    EditprofilePage,
-    
+    RegProfilePage,
+    UpdateProfilePage,
   ],
   imports: [
     BrowserModule,
@@ -75,12 +78,12 @@ var firebaseConfig = {
     AboutPage,
     SpeakersPage,
     SponsorPage,
-    ProfilePage,
+    PersonalProfViewPage,
     AttendeesPage,
     PersonInfoPage,
     ResetPasswordPage,
-    EditprofilePage,
-    
+    RegProfilePage,
+    UpdateProfilePage,
   ],
   providers: [
     StatusBar,
@@ -91,7 +94,10 @@ var firebaseConfig = {
     AuthProvider,
     AngularFireDatabase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthData
+    AuthData,
+    CamProvider,
+    Camera
   ]
 })
+
 export class AppModule {}

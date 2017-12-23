@@ -7,8 +7,8 @@ import { SigninPage } from '../signin/signin';
 import { firestore } from 'firebase/app';
 import { FirebaseApp } from 'angularfire2';
 import { AuthProvider } from '../../providers/auth/auth';
-import { PersonInfoPage } from '../person-info/person-info';
 import { AttendeesPage } from '../attendees/attendees';
+import { RegProfilePage } from '../reg-profile/reg-profile';
 
 
 @Component({
@@ -32,8 +32,8 @@ export class SignupPage {
 
   signup() {
     this.authProvider.registerUser(this.email, this.password)
-    .then((user) => {
-      this.navCtrl.setRoot(PersonInfoPage);
+    .then(() => {
+      this.navCtrl.setRoot(RegProfilePage);
     }).catch(console.error);
   }
 
