@@ -9,6 +9,7 @@ import { AttendeesPage } from '../attendees/attendees';
 import { AgendaPage } from '../agenda/agenda';
 import { PersonalProfViewPage } from '../personal-prof-view/personal-prof-view';
 import { SignupPage } from '../signup/signup';
+import { RegProfilePage } from '../reg-profile/reg-profile';
 
 @Component({
   selector: 'page-signin',
@@ -31,7 +32,7 @@ export class SigninPage {
   }
   
   signin() {
-    this.authProvider.login(this.email, this.password).then(() => this.navCtrl.setRoot(PersonalProfViewPage)).catch(function(error) {
+    this.authProvider.login(this.email, this.password).then(() => this.navCtrl.setRoot(RegProfilePage)).catch(function(error) {
       console.error(error);
     });
   }

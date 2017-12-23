@@ -14,6 +14,7 @@ export class UpdateProfilePage {
 
   ionViewDidLoad() {
     this.user = this.navParams.get('user');
+    console.log(this.user);
   }
 
 }
