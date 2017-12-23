@@ -16,17 +16,18 @@ import { SponsorPage } from '../pages/sponsor/sponsor';
 import { AttendeesPage } from '../pages/attendees/attendees';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { AuthProvider } from '../providers/auth/auth';
-import { ProfilePage } from '../pages/profile/profile';
 import firebase from 'firebase';
-import { EditprofilePage } from '../pages/editprofile/editprofile';
+import { RegProfilePage } from '../pages/reg-profile/reg-profile';
+import { PersonalProfViewPage } from '../pages/personal-prof-view/personal-prof-view';
+import { UpdateProfilePage } from '../pages/update-profile/update-profile';
 
 @Component({
   templateUrl: 'app.html'
 })
 
 export class MyApp {
-  // rootPage:any =AgendaPage;
-  rootPage:any = SignupPage ;
+  // rootPage:any = AgendaPage;
+  rootPage:any = SigninPage;
   @ViewChild(Nav) nav: Nav;
   userName;
   userEmail;
@@ -43,54 +44,47 @@ export class MyApp {
     platform.ready().then(() => {
       statusBar.styleDefault();
       splashScreen.hide();
-      setTimeout(() => {
-        console.log(this._authProvider.getUserAuth());
-        this.userEmail = this._authProvider.getUserAuth().email;
-        this.fireDB.list('/users').valueChanges().subscribe( data => {
-          this.usersin = data.filter(user => {
-            console.log(user);
-            // return true;
-            return user.email === this.userEmail
+      try {
+        setTimeout(() => {
+          this.userEmail = this._authProvider.getUserAuth().email;
+          this.fireDB.list('/users').valueChanges().subscribe( data => {
+            this.usersin = data.filter(user => {
+              if(user['email']) {
+                return user['email'] === this.userEmail
+              }
+            });
+            if(this.usersin!==[]) {
+              this.userName = this.usersin[0].firstName + ' ' + this.usersin[0].lastName;
+            }
           });
-          if(this.usersin!==[]) {
-            this.userName = this.usersin[0].firstName + ' ' + this.usersin[0].lastName;
-          }
-          console.log(this.usersin);        
-        });
-      }, 2000);
-      
+        }, 2000);
+      }
+      catch(err) {
+        console.error(err);
+      }
     });
   }
- 
+  
   map() {
     this.menu.close();
     this.nav.push(MapPage);
   }
-
-  ionViewDidLoad() {
-
-  }
-
   agenda() {
     this.menu.close();
     this.nav.push(AgendaPage);
   }
-
   about() {
     this.menu.close();
     this.nav.push(AboutPage);
   }
-  
   speakers() {
     this.menu.close();
     this.nav.push(SpeakersPage);
   }
-
   sponsor() {
     this.menu.close();
     this.nav.push(SponsorPage);
   }
-
   signout() {
     this._authProvider.signout()
       .then(() => {
@@ -99,11 +93,9 @@ export class MyApp {
       })
       .catch(console.error);
   }
-
   profile(){
     this.menu.close();
-    this.nav.push(ProfilePage);
-
+    this.nav.push(PersonalProfViewPage);
   }
   attendees(){
     this.menu.close();

@@ -1,0 +1,18 @@
+page-update-profile {
+
+  #grid {
+    display: grid;
+    height:100%;
+    grid-template-columns: 200px;
+    grid-template-rows: repeat(6, 1fr);
+    background-color: azure;
+  }
+
+  #profImg {
+    border-radius: 50%;
+  }
+
+  #picDiv {
+    background-color: beige;
+  }
+}

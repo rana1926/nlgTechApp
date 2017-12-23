@@ -7,6 +7,8 @@ import { ResetPasswordPage } from '../reset-password/reset-password';
 import { AuthProvider } from '../../providers/auth/auth';
 import { AttendeesPage } from '../attendees/attendees';
 import { AgendaPage } from '../agenda/agenda';
+import { PersonalProfViewPage } from '../personal-prof-view/personal-prof-view';
+import { SignupPage } from '../signup/signup';
 
 @Component({
   selector: 'page-signin',
@@ -29,9 +31,13 @@ export class SigninPage {
   }
   
   signin() {
-    this.authProvider.login(this.email, this.password).then(() => this.navCtrl.setRoot(AgendaPage)).catch(function(error) {
+    this.authProvider.login(this.email, this.password).then(() => this.navCtrl.setRoot(PersonalProfViewPage)).catch(function(error) {
       console.error(error);
     });
+  }
+
+  goToSignup() {
+    this.navCtrl.push(SignupPage);
   }
 
   goToResetPassword(): void {

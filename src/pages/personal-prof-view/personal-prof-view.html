@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar color="nlgen">
+    <ion-title *ngIf="userName">
+      Your Personal Profile
+    </ion-title>
+    <button  ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content >
+  <div style="width:100%; height: 200px; background-color:#00bfbb; size:100%;">
+    <img style="width: 50%; height: 50%;" src="https://pixel.nymag.com/imgs/daily/vulture/2017/10/02/02-jon-hamm-1.w710.h473.jpg" 
+      align="middle"/>
+    <button ion-button clear (click)="editProfile()">
+      <ion-icon name="add" ></ion-icon>
+    </button>
+    <h2 *ngIf="userName">
+      {{userName}}
+    </h2>
+  </div>
+  
+  <ion-fab id="fab" right bottom>
+    <button (click)="editProfile()" id="fabButt" ion-fab color="nlgen">Edit</button>
+  </ion-fab>
+</ion-content>
+
