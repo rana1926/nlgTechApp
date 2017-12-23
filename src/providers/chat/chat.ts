@@ -20,12 +20,12 @@ export class ChatProvider {
 	addnewmessage(msg) {
 	    if(this.friend) {
 		    var promise = new Promise((resolve, reject) => {
-		        this.firebuddychats.child(firebase.auth().currentUser.uid).child(this.buddy.uid).push({
+		        this.firechats.child(firebase.auth().currentUser.uid).child(this.friend.uid).push({
 					sentby: firebase.auth().currentUser.uid,
 					message: msg,
 					timestamp: firebase.database.ServerValue.TIMESTAMP
 		        }).then(() => {
-					this.firebuddychats.child(this.buddy.uid).child(firebase.auth().currentUser.uid).push({
+					this.firechats.child(this.friend.uid).child(firebase.auth().currentUser.uid).push({
 						sentby: firebase.auth().currentUser.uid,
 						message: msg,
 						timestamp: firebase.database.ServerValue.TIMESTAMP
