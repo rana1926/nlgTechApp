@@ -20,6 +20,7 @@ import firebase from 'firebase';
 import { RegProfilePage } from '../pages/reg-profile/reg-profile';
 import { PersonalProfViewPage } from '../pages/personal-prof-view/personal-prof-view';
 import { UpdateProfilePage } from '../pages/update-profile/update-profile';
+import { ChatPage } from '../pages/chat/chat';
 
 @Component({
   templateUrl: 'app.html'
@@ -75,6 +76,13 @@ export class MyApp {
     this.menu.close();
     this.nav.push(AgendaPage);
   }
+
+
+  chat() {
+    this.menu.close();
+    this.nav.push(ChatPage);
+  }
+
   about() {
     this.menu.close();
     this.nav.push(AboutPage);
