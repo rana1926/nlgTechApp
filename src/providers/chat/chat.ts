@@ -16,27 +16,20 @@ export class ChatProvider {
 		this.friend = friend;
 	}	
 
-
 	addnewmessage(msg) {
 	    if(this.friend) {
-		    var promise = new Promise((resolve, reject) => {
-		        this.firechats.child(firebase.auth().currentUser.uid).child(this.friend.uid).push({
+	    	return this.firechats.child(firebase.auth().currentUser.uid).child(this.friend.uid).push({
+				sentby: firebase.auth().currentUser.uid,
+				message: msg,
+				timestamp: firebase.database.ServerValue.TIMESTAMP
+	        }).then(() => {
+				this.firechats.child(this.friend.uid).child(firebase.auth().currentUser.uid).push({
 					sentby: firebase.auth().currentUser.uid,
 					message: msg,
 					timestamp: firebase.database.ServerValue.TIMESTAMP
-		        }).then(() => {
-					this.firechats.child(this.friend.uid).child(firebase.auth().currentUser.uid).push({
-						sentby: firebase.auth().currentUser.uid,
-						message: msg,
-						timestamp: firebase.database.ServerValue.TIMESTAMP
-					}).then(() => {
-						resolve(true);
-					}).catch((err) => {
-						reject(err);
-					})
-		        })
-	      	})
-	      return promise;
+				})
+	        })
+
 	    }
   	}
 
