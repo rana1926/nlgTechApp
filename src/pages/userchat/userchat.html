@@ -18,7 +18,7 @@
   <ion-list no-lines>
     <ion-item *ngFor = "let item of allmessages; let i = index" text-wrap>
       <ion-avatar item-left *ngIf="item.sentby === friend.uid">
-        <img src="https://qph.ec.quoracdn.net/main-thumb-100309-50-vctkfcvpnbuhpcpeiupepzbnppopgbph.jpeg">
+        <img src="http://lentech.org/images/no_avatar.png">
       </ion-avatar>
       <div class="bubble me" *ngIf="item.sentby === friend.uid">
         <h3 *ngIf="!imgornot[i]">{{item.message}}</h3>

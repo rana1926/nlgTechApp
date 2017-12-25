@@ -10,11 +10,12 @@
 	<ion-list no-lines>
 		<ion-item *ngFor="let user of users" (click)="initChat(user)">
 			<ion-avatar item-start>
-				<img src="https://qph.ec.quoracdn.net/main-thumb-100309-50-vctkfcvpnbuhpcpeiupepzbnppopgbph.jpeg">
+				<img src="http://lentech.org/images/no_avatar.png">
 			</ion-avatar>
 
 			<h2>{{user.firstName + ' ' + user.lastName}}</h2>
-			<p>{{user.position}}</p>     
+			<p>{{user.position}}</p>
+
 		</ion-item>
 	</ion-list>
 </ion-content>
