@@ -1,24 +1,28 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the SponsorPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import firebase from 'firebase';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'page-sponsor',
   templateUrl: 'sponsor.html',
 })
 export class SponsorPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  
+  sponsors;
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public angularFireAuth: AngularFireAuth,
+              public fireDB:AngularFireDatabase) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SponsorPage');
+    this.fireDB.list('/sponsor').valueChanges().subscribe(res => {
+      this.sponsors = res;
+      console.log(this.sponsors)
+    });
   }
 
 }

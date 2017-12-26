@@ -13,10 +13,13 @@
 
 <ion-content >
   <div style="width:100%; height: 200px; background-color:#00bfbb; size:100%;">
-    <img style="width: 50%; height: 50%;" [src]="profilePicURL" align="middle"/>
-    <h2 *ngIf="userName">
+    <img style="height:100px;
+    width:35%; border-radius: 100%;  display: block;
+    margin: 0 auto;" [src]="profilePicURL" align="middle"/>
+    <h2 *ngIf="userName" style="text-align: center;">
       {{userName}}
     </h2>
+    <h6 style="text-align: center;"> {{userEmail}} </h6>
   </div>
   
   <ion-fab id="fab" right bottom>
