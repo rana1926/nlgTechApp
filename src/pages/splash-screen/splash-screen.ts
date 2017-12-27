@@ -16,6 +16,7 @@ import { SignupPage } from '../signup/signup';
 export class SplashScreenPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    
   }
 
   ionViewDidLoad() {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import firebase from 'firebase';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -10,7 +10,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { ProfilePage } from '../profile/profile';
 import { AttendeesPage } from '../attendees/attendees';
 import { AgendaPage } from '../agenda/agenda';
-
+import { PincodeController } from  'ionic2-pincode-input/dist/pincode';
 
 @Component({
   selector: 'page-signup',
@@ -20,23 +20,27 @@ import { AgendaPage } from '../agenda/agenda';
 export class SignupPage {
   email;
   password;
+  code;
   constructor(
     private navCtrl: NavController, 
     private navParams: NavParams, 
     private angularFireAuth: AngularFireAuth, 
     private fireDB:AngularFireDatabase,
-    private authProvider:AuthProvider
+    private authProvider:AuthProvider,
+    public pincodeCtrl: PincodeController,
+    private alertCtrl: AlertController
   ) {
-    this.email = '@s.com'
-    this.password = '00000000';    
+    this.email = 'duha@gmail.com'
+    this.password = '11111111';   
+    
   }
 
-  signup() {
-    this.authProvider.registerUser(this.email, this.password)
-    .then(() => this.navCtrl.setRoot(ProfilePage)).catch(function(error) {
-      console.error(error)
-    });
-  }
+  // signup() {  
+  //   this.authProvider.registerUser(this.email, this.password)
+  //   .then(() => this.navCtrl.setRoot(ProfilePage)).catch(function(error) {
+  //     console.error(error)
+  //   });
+  // }
 
   goToSignin() {
     this.navCtrl.push(SigninPage)
@@ -45,11 +49,51 @@ export class SignupPage {
   ionViewDidLoad() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        this.navCtrl.setRoot(AgendaPage)
-             
+        this.navCtrl.setRoot(AgendaPage);       
       }
     })     
   }
 
+  openPinCode(){
+    
+    let pinCode =  this.pincodeCtrl.create({
+      title:'Pincode'
+    });
+    
+    pinCode.present();
+    
+    pinCode.onDidDismiss( (code,status) => {
+        
+      if (status === 'done') {
+        let user = firebase.database().ref('codes').once('value', (_snapshot: any) => {
+            console.log(_snapshot.val());
+          //   if (_snapshot.hasChild(String(code))) {
+          //    console.log('yesss')
+          // }
+          var flag = false
+          for (var i = 0; i < _snapshot.val().length; i++) {
+            if (_snapshot.val()[i].value === code && _snapshot.val()[i].is_active === true) {
+              flag = true;
+              let ref = this.fireDB.database.ref('codes/' + i).update({is_active: false});
+            } 
+          }
+          if(flag){
+            this.authProvider.registerUser(this.email, this.password)
+              .then(() => this.navCtrl.setRoot(ProfilePage)).catch(function(error) {
+                console.error(error)
+              });
+          }else{
+            let alert = this.alertCtrl.create({
+              title: 'Error',
+              subTitle: 'Invalid code please try it again!',
+              buttons: ['OK']
+            });
+            alert.present();
+          }
+        })
+      }
+    })
+    
+  }
 
 }

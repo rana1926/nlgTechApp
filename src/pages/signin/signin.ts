@@ -24,8 +24,8 @@ export class SigninPage {
     public angularFireAuth: AngularFireAuth,
     public fireDB:AngularFireDatabase,
     public authProvider:AuthProvider){
-      this.email = 'ss@s.com';
-      this.password = '00000000';
+      this.email = 'duha@gmail.com'
+      this.password = '11111111';
   }
   
   signin() {

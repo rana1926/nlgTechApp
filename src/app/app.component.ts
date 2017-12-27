@@ -17,6 +17,7 @@ import { SponsorPage } from '../pages/sponsor/sponsor';
 import { AttendeesPage } from '../pages/attendees/attendees';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { AuthProvider } from '../providers/auth/auth';
+import * as $ from 'jquery';
 
 @Component({
   templateUrl: 'app.html'
