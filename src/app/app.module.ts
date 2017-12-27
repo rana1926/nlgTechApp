@@ -15,6 +15,7 @@ import { SignupPage } from "../pages/signup/signup";
 import { SigninPage } from "../pages/signin/signin";
 import { AgendaPage } from '../pages/agenda/agenda';
 import { AboutPage } from '../pages/about/about';
+import { ChatPage } from '../pages/chat/chat';
 import { SpeakersPage } from '../pages/speakers/speakers';
 import { SponsorPage } from '../pages/sponsor/sponsor';
 import { Pro } from '@ionic/pro';
@@ -31,6 +32,8 @@ import { CamProvider } from '../providers/cam/cam';
 import { Camera } from '@ionic-native/camera';
 import {ExhibitorsPage} from '../pages/exhibitors/exhibitors';
 import  { ExhibitorsInfoPage } from '../pages/exhibitors-info/exhibitors-info';
+import { ChatProvider } from '../providers/chat/chat';
+
 const IonicPro = Pro.init('ac56531e', {
   appVersion: "0.0.1"
 });
@@ -62,7 +65,8 @@ var firebaseConfig = {
     RegProfilePage,
     UpdateProfilePage,
     ExhibitorsPage,
-    ExhibitorsInfoPage
+    ExhibitorsInfoPage,
+    ChatPage
   ],
   imports: [
     BrowserModule,
@@ -88,7 +92,8 @@ var firebaseConfig = {
     RegProfilePage,
     UpdateProfilePage,
     ExhibitorsPage,
-    ExhibitorsInfoPage
+    ExhibitorsInfoPage,
+    ChatPage
   ],
   providers: [
     StatusBar,
@@ -101,7 +106,8 @@ var firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthData,
     CamProvider,
-    Camera
+    Camera,
+    ChatProvider
   ]
 })
 
