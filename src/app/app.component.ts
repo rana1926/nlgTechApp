@@ -29,7 +29,7 @@ import  { ExhibitorsInfoPage } from '../pages/exhibitors-info/exhibitors-info';
 
 export class MyApp {
   // rootPage:any = AgendaPage;
-  rootPage:any = SigninPage;
+  rootPage:any = RegProfilePage;
   @ViewChild(Nav) nav: Nav;
   userName;
   userEmail;
