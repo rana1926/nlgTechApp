@@ -23,6 +23,8 @@ import { UpdateProfilePage } from '../pages/update-profile/update-profile';
 import { CamProvider } from '../providers/cam/cam';
 import {ExhibitorsPage} from '../pages/exhibitors/exhibitors';
 import  { ExhibitorsInfoPage } from '../pages/exhibitors-info/exhibitors-info';
+import { ChatPage } from '../pages/chat/chat';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -79,6 +81,13 @@ export class MyApp {
     this.menu.close();
     this.nav.push(AgendaPage);
   }
+
+
+  chat() {
+    this.menu.close();
+    this.nav.push(ChatPage);
+  }
+
   about() {
     this.menu.close();
     this.nav.push(AboutPage);
