@@ -20,8 +20,10 @@
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Age</ion-label>
-      <ion-input (input)="checkFields()" type="number" [(ngModel)]="profile.age"></ion-input>
+      <ion-label floating>Country</ion-label>
+      <ion-select (ionChange)='checkFields()' [(ngModel)]="country">
+        <ion-option *ngFor="let country of countries">{{country}}</ion-option>
+      </ion-select>
     </ion-item>
 
     <ion-item>

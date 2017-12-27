@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="nlgen">
     <ion-title>Update Personal Profile</ion-title>
   </ion-navbar>
 
@@ -22,10 +22,16 @@
       <ion-input [(ngModel)]="user.lastName" type="text"></ion-input>
     </ion-item>
     <ion-item>
+      <ion-label floating>Country</ion-label>
+      <ion-select [(ngModel)]="country">
+        <ion-option *ngFor="let country of countries">{{country}}</ion-option>
+      </ion-select>
+      </ion-item>
+    <!-- <ion-item>
       <ion-label>Age</ion-label>
       <ion-input [(ngModel)]="user.age" type="text"></ion-input>
-    </ion-item>
-    <ion-item>
+    </ion-item> -->
+    <ion-item> 
       <ion-label>Position:</ion-label>
       <ion-input [(ngModel)]="user.position" type="text"></ion-input>
     </ion-item>

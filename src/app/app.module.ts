@@ -30,6 +30,8 @@ import { PersonalProfViewPage } from "../pages/personal-prof-view/personal-prof-
 import { UpdateProfilePage } from '../pages/update-profile/update-profile';
 import { CamProvider } from '../providers/cam/cam';
 import { Camera } from '@ionic-native/camera';
+import {ExhibitorsPage} from '../pages/exhibitors/exhibitors';
+import  { ExhibitorsInfoPage } from '../pages/exhibitors-info/exhibitors-info';
 import { ChatProvider } from '../providers/chat/chat';
 
 const IonicPro = Pro.init('ac56531e', {
@@ -62,6 +64,8 @@ var firebaseConfig = {
     ResetPasswordPage,
     RegProfilePage,
     UpdateProfilePage,
+    ExhibitorsPage,
+    ExhibitorsInfoPage,
     ChatPage
   ],
   imports: [
@@ -87,6 +91,8 @@ var firebaseConfig = {
     ResetPasswordPage,
     RegProfilePage,
     UpdateProfilePage,
+    ExhibitorsPage,
+    ExhibitorsInfoPage,
     ChatPage
   ],
   providers: [

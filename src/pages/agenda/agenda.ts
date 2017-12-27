@@ -4,6 +4,7 @@ import firebase from 'firebase';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Console } from '@angular/core/src/console';
+import { AuthProvider } from '../../providers/auth/auth';
 /**
  * Generated class for the AgendaPage page.
  *
@@ -21,7 +22,8 @@ export class AgendaPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public angularFireAuth: AngularFireAuth,
-              public fireDB:AngularFireDatabase
+              public fireDB:AngularFireDatabase,
+              private _authProvider: AuthProvider,
             ) {
               
   }
@@ -35,7 +37,4 @@ export class AgendaPage {
      
     // Console.log(itemsRef);
   }
-
-
-  
 }

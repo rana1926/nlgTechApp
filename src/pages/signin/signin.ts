@@ -28,8 +28,8 @@ export class SigninPage {
     public angularFireAuth: AngularFireAuth,
     public fireDB:AngularFireDatabase,
     public authProvider:AuthProvider){
-      this.email = 'dana@gmail.com';
-      this.password = '12345678';
+      this.email = 'duhaali@gmail.com';
+      this.password = '11111111';
   }
   
   signin() {
