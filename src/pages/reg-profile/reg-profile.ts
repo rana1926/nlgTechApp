@@ -263,6 +263,22 @@ export class RegProfilePage {
     "Zambia",
     "Zimbabwe"
   ];
+  organization='';
+  organizations= [
+    "Government",
+    "INGO",
+    "National NGO/community organization",
+    "UN",
+    "Institutional donor",
+    "Foundation",
+    "Private investor",
+    "SME/startup",
+    "Private sector",
+    "Academic",
+    "Media",
+    "I am a youth representative",
+    "Other",
+  ];
   emptyFields: boolean = true;
   profile = {
     firstName: null,
@@ -271,6 +287,7 @@ export class RegProfilePage {
     position: null,
     description: null,
     country:this.country,
+    organization:this.organization, 
   };
 
   constructor(
@@ -286,6 +303,7 @@ export class RegProfilePage {
       this.profile.firstName !== null &&
       this.profile.lastName !== null &&
       this.country !== '' &&
+      this.organization !== ''&&
       this.profile.position !== null &&
       this.profile.description !== null) {
         this.emptyFields = false;
@@ -298,13 +316,15 @@ export class RegProfilePage {
     let email = this._authProvider.getUserAuth().email;
     this.profile['uid'] = uid;
     this.profile['email'] = email;
-    this.profile.country=this.country
+    this.profile.country=this.country;
+    this.profile.organization=this.organization;
     this.profile.firstName = this.profile.firstName.toUpperCase();
     this.profile.lastName = this.profile.lastName.toUpperCase();
     this.profile.position = this.profile.position.toUpperCase();
     this.profile.description = this.profile.description.toUpperCase();
-    this.profile.country = this.profile.country.toUpperCase();    
+    this.profile.country = this.profile.country.toUpperCase();  
+    this.profile.organization = this.profile.organization.toUpperCase();
     this.FirDB.database.ref('users/'+uid).set(this.profile).then(() => this.navCtrl.setRoot(AgendaPage)).catch( err => console.error(err));
-    console.log(this.profile.country)
+    console.log(this.profile.organization)
   }
 }
