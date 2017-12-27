@@ -4,22 +4,22 @@
     <ion-title *ngIf="person">{{person.firstName + ' ' + person.lastName + "' "}}Info</ion-title>
   </ion-navbar>
 
-</ion-header>
+</ion-header> -->
 
 
 <ion-content padding>
-  <!-- <ion-card> -->
-  <ion-grid *ngIf="person">
-    <ion-row>
-      <img src="https://qph.ec.quoracdn.net/main-thumb-100309-50-vctkfcvpnbuhpcpeiupepzbnppopgbph.jpeg" class="personalImg">
-      <ion-col class="titleCol">
-        <h1>{{person.firstName + ' ' + person.lastName}}</h1>
-        <h3>{{person.position}}</h3>
-      </ion-col>
-    </ion-row>
-    <ion-row class="desRow">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel laoreet erat. Nulla gravida, mauris mollis consectetur varius, tortor elit tempus sem, non tincidunt urna erat in sapien. Curabitur non semper mi. Quisque et tincidunt nisl. Ut sed ipsum eget lectus mollis gravida sed sed arcu. Vivamus turpis risus, congue vel tortor non, placerat ultrices orci. Nunc in venenatis velit, nec cursus odio. Morbi vel feugiat magna. Sed non magna semper, ullamcorper libero vel, congue leo.
-    </ion-row>
-  </ion-grid>
-  <!-- </ion-card> -->
+  <ion-card>
+    <ion-grid *ngIf="person">
+      <ion-row>
+        <img src="https://qph.ec.quoracdn.net/main-thumb-100309-50-vctkfcvpnbuhpcpeiupepzbnppopgbph.jpeg" class="personalImg">
+        <ion-col class="titleCol">
+          <h1>{{person.firstName + ' ' + person.lastName}}</h1>
+          <h3>{{person.position}}</h3>
+        </ion-col>
+      </ion-row>
+      <ion-row class="desRow">
+        {{person.description}}
+      </ion-row>
+    </ion-grid>
+  </ion-card>
 </ion-content>

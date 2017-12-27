@@ -1,0 +1,21 @@
+<ion-header >
+	<ion-navbar color="nlgen">
+		<ion-title>CHAT</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content class="list-avatar-page">
+	<ion-searchbar (ionInput)="findUsers($event)"></ion-searchbar>
+	<ion-list no-lines>
+		<ion-item *ngFor="let user of users" (click)="initChat(user)">
+			<ion-avatar item-start>
+				<img src="http://lentech.org/images/no_avatar.png">
+			</ion-avatar>
+
+			<h2>{{user.firstName + ' ' + user.lastName}}</h2>
+			<p>{{user.position}}</p>
+
+		</ion-item>
+	</ion-list>
+</ion-content>

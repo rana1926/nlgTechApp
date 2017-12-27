@@ -7,8 +7,8 @@ import { SigninPage } from '../signin/signin';
 import { firestore } from 'firebase/app';
 import { FirebaseApp } from 'angularfire2';
 import { AuthProvider } from '../../providers/auth/auth';
-import { ProfilePage } from '../profile/profile';
 import { AttendeesPage } from '../attendees/attendees';
+import { RegProfilePage } from '../reg-profile/reg-profile';
 import { AgendaPage } from '../agenda/agenda';
 
 
@@ -33,9 +33,9 @@ export class SignupPage {
 
   signup() {
     this.authProvider.registerUser(this.email, this.password)
-    .then(() => this.navCtrl.setRoot(ProfilePage)).catch(function(error) {
-      console.error(error)
-    });
+    .then(() => {
+      this.navCtrl.setRoot(RegProfilePage);
+    }).catch(console.error);
   }
 
   goToSignin() {
