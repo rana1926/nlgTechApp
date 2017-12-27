@@ -1,0 +1,20 @@
+<!--
+  Generated template for the ExhibitorsInfoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="nlgen">
+    <ion-title>exhibitors-info</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <img *ngIf="info" src={{info.img}}}>
+  <h2 *ngIf="info"  align="middle">{{info.name}} </h2>
+  <p *ngIf="info">{{info.about}}</p>
+</ion-content>

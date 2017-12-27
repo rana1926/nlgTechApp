@@ -29,7 +29,8 @@ import { PersonalProfViewPage } from "../pages/personal-prof-view/personal-prof-
 import { UpdateProfilePage } from '../pages/update-profile/update-profile';
 import { CamProvider } from '../providers/cam/cam';
 import { Camera } from '@ionic-native/camera';
-
+import {ExhibitorsPage} from '../pages/exhibitors/exhibitors';
+import  { ExhibitorsInfoPage } from '../pages/exhibitors-info/exhibitors-info';
 const IonicPro = Pro.init('ac56531e', {
   appVersion: "0.0.1"
 });
@@ -60,6 +61,8 @@ var firebaseConfig = {
     ResetPasswordPage,
     RegProfilePage,
     UpdateProfilePage,
+    ExhibitorsPage,
+    ExhibitorsInfoPage
   ],
   imports: [
     BrowserModule,
@@ -84,6 +87,8 @@ var firebaseConfig = {
     ResetPasswordPage,
     RegProfilePage,
     UpdateProfilePage,
+    ExhibitorsPage,
+    ExhibitorsInfoPage
   ],
   providers: [
     StatusBar,

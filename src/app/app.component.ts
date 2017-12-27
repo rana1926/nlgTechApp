@@ -21,7 +21,8 @@ import { RegProfilePage } from '../pages/reg-profile/reg-profile';
 import { PersonalProfViewPage } from '../pages/personal-prof-view/personal-prof-view';
 import { UpdateProfilePage } from '../pages/update-profile/update-profile';
 import { CamProvider } from '../providers/cam/cam';
-
+import {ExhibitorsPage} from '../pages/exhibitors/exhibitors';
+import  { ExhibitorsInfoPage } from '../pages/exhibitors-info/exhibitors-info';
 @Component({
   templateUrl: 'app.html'
 })
@@ -122,6 +123,11 @@ export class MyApp {
       }
     });
         
+  }
+
+  exhibitors(){
+    this.menu.close();
+    this.nav.push(ExhibitorsPage);
   }
 }
 
