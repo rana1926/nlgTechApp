@@ -279,6 +279,26 @@ export class RegProfilePage {
     "I am a youth representative",
     "Other",
   ];
+
+  NLGCountry= [];
+  NLGCountries=[
+    "Egypt",
+    "Iraq",              
+    "Jordan",
+    "Lebanon",
+    "Syria",
+    "Turkey",
+    "Other non-NLG country (please specify):"
+  ];
+  area=[];
+  areas=[
+    "Employment",
+    "Entrepreneurship",
+    "Technical and Vocational Education and Training",
+    "Higher Education",
+    "Participation and Representation of Young People",
+    "Gender",
+  ];
   emptyFields: boolean = true;
   profile = {
     firstName: null,
@@ -287,7 +307,9 @@ export class RegProfilePage {
     position: null,
     description: null,
     country:this.country,
-    organization:this.organization, 
+    organization:this.organization,
+    NLGCountry:this.NLGCountry,
+    area:this.area,
   };
 
   constructor(
@@ -299,14 +321,19 @@ export class RegProfilePage {
   
   checkFields() {
     console.log(this.country);
+    //console.log(this.NLGCountry)
     if(
       this.profile.firstName !== null &&
       this.profile.lastName !== null &&
       this.country !== '' &&
       this.organization !== ''&&
       this.profile.position !== null &&
+      this.NLGCountry.length !== 0 &&
+      this.area.length !== 0 &&
       this.profile.description !== null) {
         this.emptyFields = false;
+        
+
     }
   }
 
@@ -316,15 +343,21 @@ export class RegProfilePage {
     let email = this._authProvider.getUserAuth().email;
     this.profile['uid'] = uid;
     this.profile['email'] = email;
-    this.profile.country=this.country;
-    this.profile.organization=this.organization;
+    this.profile.country = this.country;
+    this.profile.organization = this.organization;
+    this.profile.NLGCountry = this.NLGCountry;
+    this.profile.area= this.area;
     this.profile.firstName = this.profile.firstName.toUpperCase();
     this.profile.lastName = this.profile.lastName.toUpperCase();
     this.profile.position = this.profile.position.toUpperCase();
     this.profile.description = this.profile.description.toUpperCase();
     this.profile.country = this.profile.country.toUpperCase();  
     this.profile.organization = this.profile.organization.toUpperCase();
+    //for(var i=0;i<this.profile.NLGCountry.length; i++){
+      //this.profile.NLGCountry[i] = this.profile.NLGCountry[i].toUpperCase();
+    //}
+    //console.log(this.NLGCountry)
     this.FirDB.database.ref('users/'+uid).set(this.profile).then(() => this.navCtrl.setRoot(AgendaPage)).catch( err => console.error(err));
-    console.log(this.profile.organization)
+    console.log(this.profile)
   }
 }
