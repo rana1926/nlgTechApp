@@ -11,7 +11,6 @@ import firebase from 'firebase';
 export class AuthData {
   public fireAuth: any;
   constructor() {
-    console.log('Hello AuthDataProvider Provider');
     this.fireAuth = firebase.auth();
   }
  

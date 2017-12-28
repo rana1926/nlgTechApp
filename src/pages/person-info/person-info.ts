@@ -6,15 +6,11 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'person-info.html',
 })
 
-export class PersonInfoPage {  
+export class PersonInfoPage {
   person;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams) {
+      this.person = this.navParams.get('person');
   }
-
-  ionViewDidLoad() {
-    this.person = this.navParams.get('person');
-  }
-
 }

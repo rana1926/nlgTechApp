@@ -9,5 +9,8 @@
 
 
 <ion-content padding>
+    <a *ngFor="let sponsor of sponsors" href="{{sponsor.website}}" target="blank">
+      <img  style="width:100px; height:100px; padding: 0.2cm 0.2cm 0.2cm 0.2cm;"  src="{{sponsor.img}}">
+    </a>
 
 </ion-content>

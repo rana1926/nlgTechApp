@@ -10,17 +10,21 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-item>
+    <ion-input type="text" placeholder="search" [(ngModel)]="searchQuery" (input)="filterUsers()"></ion-input>
+  </ion-item>
+
   <ion-list>
-    <ion-item *ngFor="let user of users" (click)="showPerson(user)">
+    <ion-item *ngFor="let user of filteredUsers" (click)="showPerson(user)">
       <ion-grid >
         <ion-row>
-            <ion-avatar>
-              <img src="https://qph.ec.quoracdn.net/main-thumb-100309-50-vctkfcvpnbuhpcpeiupepzbnppopgbph.jpeg">
-            </ion-avatar>
-            <ion-col>
-              <h2>{{user.firstName + ' ' + user.lastName}}</h2>
-              <p>{{user.position}}</p>     
-            </ion-col>
+          <ion-avatar>
+            <img src="https://qph.ec.quoracdn.net/main-thumb-100309-50-vctkfcvpnbuhpcpeiupepzbnppopgbph.jpeg">
+          </ion-avatar>
+          <ion-col>
+            <h2>{{user.firstName + ' ' + user.lastName}}</h2>
+            <p>{{user.position}}</p>     
+          </ion-col>
           <ion-icon name="information-circle-outline"></ion-icon>
         </ion-row>
       </ion-grid>

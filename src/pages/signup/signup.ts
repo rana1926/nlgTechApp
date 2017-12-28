@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import firebase from 'firebase';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -7,8 +7,8 @@ import { SigninPage } from '../signin/signin';
 import { firestore } from 'firebase/app';
 import { FirebaseApp } from 'angularfire2';
 import { AuthProvider } from '../../providers/auth/auth';
-import { ProfilePage } from '../profile/profile';
 import { AttendeesPage } from '../attendees/attendees';
+import { RegProfilePage } from '../reg-profile/reg-profile';
 import { AgendaPage } from '../agenda/agenda';
 import { PincodeController } from  'ionic2-pincode-input/dist/pincode';
 
@@ -28,7 +28,8 @@ export class SignupPage {
     private fireDB:AngularFireDatabase,
     private authProvider:AuthProvider,
     public pincodeCtrl: PincodeController,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private toastCtrl: ToastController    
   ) {
     this.email = 'duha@gmail.com'
     this.password = '11111111';   
@@ -79,8 +80,11 @@ export class SignupPage {
           }
           if(flag){
             this.authProvider.registerUser(this.email, this.password)
-              .then(() => this.navCtrl.setRoot(ProfilePage)).catch(function(error) {
-                console.error(error)
+              .then(() => this.navCtrl.setRoot(RegProfilePage)).catch(err => {
+                this.toastCtrl.create({
+                  message: err.message,
+                  duration: 6000
+                }).present();
               });
           }else{
             let alert = this.alertCtrl.create({
