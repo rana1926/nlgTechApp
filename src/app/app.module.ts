@@ -11,6 +11,7 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/dat
 
 import {MapPage} from '../pages/map/map'
 import { MyApp } from './app.component';
+import { SplashScreenPage } from '../pages/splash-screen/splash-screen';
 import { SignupPage } from "../pages/signup/signup";
 import { SigninPage } from "../pages/signin/signin";
 import { AgendaPage } from '../pages/agenda/agenda';
@@ -25,6 +26,8 @@ import { UsersProvider } from '../providers/users/users';
 import { PersonInfoPage } from '../pages/person-info/person-info';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { AuthData } from '../providers/auth-data/auth-data';
+import { PincodeInputModule } from  'ionic2-pincode-input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegProfilePage } from '../pages/reg-profile/reg-profile';
 import { PersonalProfViewPage } from "../pages/personal-prof-view/personal-prof-view";
 import { UpdateProfilePage } from '../pages/update-profile/update-profile';
@@ -38,7 +41,6 @@ const IonicPro = Pro.init('ac56531e', {
   appVersion: "0.0.1"
 });
 
-PersonalProfViewPage
 var firebaseConfig = {
   apiKey: "AIzaSyBp9MJ8dQnen3MIl9n-U8z35xSkaqr3xHQ",
   authDomain: "nlg-dev.firebaseapp.com",
@@ -48,9 +50,11 @@ var firebaseConfig = {
   messagingSenderId: "736492675148"
 };
 
+
 @NgModule({
   declarations: [
     MyApp,
+    SplashScreenPage,
     SignupPage,
     SigninPage,
     MapPage,
@@ -70,14 +74,17 @@ var firebaseConfig = {
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    PincodeInputModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    SplashScreenPage,
     SignupPage,
     SigninPage,
     MapPage,

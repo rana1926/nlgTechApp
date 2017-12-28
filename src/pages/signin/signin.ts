@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import firebase from 'firebase';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -27,14 +27,18 @@ export class SigninPage {
     public navParams: NavParams,
     public angularFireAuth: AngularFireAuth,
     public fireDB:AngularFireDatabase,
+    private toastCtrl: ToastController,
     public authProvider:AuthProvider){
       this.email = 'duhaali@gmail.com';
       this.password = '11111111';
   }
   
   signin() {
-    this.authProvider.login(this.email, this.password).then(() => this.navCtrl.setRoot(AgendaPage)).catch(function(error) {
-      console.error(error);
+    this.authProvider.login(this.email, this.password).then(() => this.navCtrl.setRoot(AgendaPage)).catch(err => {
+      this.toastCtrl.create({
+        message: err.message,
+        duration: 6000
+      }).present();
     });
   }
 
