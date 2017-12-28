@@ -50,7 +50,7 @@ export class SignupPage {
   ionViewDidLoad() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        this.navCtrl.setRoot(AgendaPage);       
+        this.navCtrl.setRoot(RegProfilePage);       
       }
     })     
   }
