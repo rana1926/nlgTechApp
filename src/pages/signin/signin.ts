@@ -9,7 +9,7 @@ import { AttendeesPage } from '../attendees/attendees';
 import { AgendaPage } from '../agenda/agenda';
 import { PersonalProfViewPage } from '../personal-prof-view/personal-prof-view';
 import { SignupPage } from '../signup/signup';
-import { RegProfilePage } from '../reg-profile/reg-profile';
+//import { RegProfilePage } from '../reg-profile/reg-profile';
 import { UpdateProfilePage } from '../update-profile/update-profile';
 
 @Component({
