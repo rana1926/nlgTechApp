@@ -1,8 +1,6 @@
 import { Component,ViewChild } from '@angular/core';
 import { NavController, NavParams,Nav } from 'ionic-angular';
-import firebase from 'firebase';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { AngularFireAuth } from 'angularfire2/auth';
 import  { ExhibitorsInfoPage } from '../exhibitors-info/exhibitors-info';
 
 @Component({

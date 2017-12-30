@@ -32,10 +32,11 @@ export class MapPage {
 
  
 
-  constructor(public navCtrl: NavController, 
-    private geolocation : Geolocation, 
-    private googleMaps: GoogleMaps, 
-    private platform: Platform, 
+  constructor(
+    public navCtrl: NavController,
+    private geolocation : Geolocation,
+    private googleMaps: GoogleMaps,
+    private platform: Platform,
     public navParams: NavParams,
     public fireDB:AngularFireDatabase) {
   }

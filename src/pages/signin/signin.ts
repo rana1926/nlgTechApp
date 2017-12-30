@@ -1,16 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
-import firebase from 'firebase';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { ResetPasswordPage } from '../reset-password/reset-password';
 import { AuthProvider } from '../../providers/auth/auth';
-import { AttendeesPage } from '../attendees/attendees';
 import { AgendaPage } from '../agenda/agenda';
 import { PersonalProfViewPage } from '../personal-prof-view/personal-prof-view';
 import { SignupPage } from '../signup/signup';
-//import { RegProfilePage } from '../reg-profile/reg-profile';
-import { UpdateProfilePage } from '../update-profile/update-profile';
 
 @Component({
   selector: 'page-signin',
@@ -22,7 +18,6 @@ export class SigninPage {
   password;
   uid;
   constructor(
-    private alertCtrl: AlertController,
     public navCtrl: NavController, 
     public navParams: NavParams,
     public angularFireAuth: AngularFireAuth,
