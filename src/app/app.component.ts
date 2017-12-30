@@ -25,6 +25,7 @@ import { CamProvider } from '../providers/cam/cam';
 import {ExhibitorsPage} from '../pages/exhibitors/exhibitors';
 import  { ExhibitorsInfoPage } from '../pages/exhibitors-info/exhibitors-info';
 import { ChatPage } from '../pages/chat/chat';
+import { ReportUserPage } from'../pages/report-user/report-user';
 
 @Component({
   templateUrl: 'app.html'
@@ -32,8 +33,8 @@ import { ChatPage } from '../pages/chat/chat';
 
 export class MyApp {
 
-  //rootPage:any =AgendaPage;
-  rootPage:any = SplashScreenPage;
+  rootPage:any =SigninPage;
+  //rootPage:any = SplashScreenPage;
   @ViewChild(Nav) nav: Nav;
   userName;
   userEmail;

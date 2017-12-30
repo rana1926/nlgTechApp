@@ -36,6 +36,7 @@ import { Camera } from '@ionic-native/camera';
 import {ExhibitorsPage} from '../pages/exhibitors/exhibitors';
 import  { ExhibitorsInfoPage } from '../pages/exhibitors-info/exhibitors-info';
 import { ChatProvider } from '../providers/chat/chat';
+import { ReportUserPage } from'../pages/report-user/report-user';
 
 const IonicPro = Pro.init('ac56531e', {
   appVersion: "0.0.1"
@@ -70,7 +71,8 @@ var firebaseConfig = {
     UpdateProfilePage,
     ExhibitorsPage,
     ExhibitorsInfoPage,
-    ChatPage
+    ChatPage,
+    ReportUserPage
   ],
   imports: [
     BrowserModule,
@@ -100,7 +102,8 @@ var firebaseConfig = {
     UpdateProfilePage,
     ExhibitorsPage,
     ExhibitorsInfoPage,
-    ChatPage
+    ChatPage,
+    ReportUserPage
   ],
   providers: [
     StatusBar,
