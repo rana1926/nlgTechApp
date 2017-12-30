@@ -26,6 +26,8 @@ import {ExhibitorsPage} from '../pages/exhibitors/exhibitors';
 import  { ExhibitorsInfoPage } from '../pages/exhibitors-info/exhibitors-info';
 import { ChatPage } from '../pages/chat/chat';
 import { ReportUserPage } from'../pages/report-user/report-user';
+import { EmailComposer } from '@ionic-native/email-composer';
+import { Calendar } from '@ionic-native/calendar';
 
 @Component({
   templateUrl: 'app.html'
