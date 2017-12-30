@@ -7,6 +7,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 import {MapPage} from '../pages/map/map';
+import { SplashScreenPage } from '../pages/splash-screen/splash-screen';
 import { SignupPage } from '../pages/signup/signup';
 import { SigninPage } from '../pages/signin/signin';
 import { AgendaPage } from '../pages/agenda/agenda';
@@ -20,18 +21,27 @@ import firebase from 'firebase';
 import { RegProfilePage } from '../pages/reg-profile/reg-profile';
 import { PersonalProfViewPage } from '../pages/personal-prof-view/personal-prof-view';
 import { UpdateProfilePage } from '../pages/update-profile/update-profile';
+import { CamProvider } from '../providers/cam/cam';
+import {ExhibitorsPage} from '../pages/exhibitors/exhibitors';
+import  { ExhibitorsInfoPage } from '../pages/exhibitors-info/exhibitors-info';
+import { ChatPage } from '../pages/chat/chat';
+import { ReportUserPage } from'../pages/report-user/report-user';
+import { EmailComposer } from '@ionic-native/email-composer';
+import { Calendar } from '@ionic-native/calendar';
 
 @Component({
   templateUrl: 'app.html'
 })
 
 export class MyApp {
-  // rootPage:any = AgendaPage;
-  rootPage:any = SigninPage;
+
+  rootPage:any =SigninPage;
+  //rootPage:any = SplashScreenPage;
   @ViewChild(Nav) nav: Nav;
   userName;
   userEmail;
   usersin;
+  profilePicURL;
   constructor(
     private platform: Platform, 
     private statusBar: StatusBar, 
@@ -39,31 +49,32 @@ export class MyApp {
     private angularFireAuth: AngularFireAuth, 
     private menu: MenuController,
     private _authProvider: AuthProvider,
-    public fireDB :AngularFireDatabase
+    public fireDB :AngularFireDatabase,
+    public _camProvider: CamProvider
     ) {
     platform.ready().then(() => {
       statusBar.styleDefault();
       splashScreen.hide();
-      try {
-        setTimeout(() => {
-          if(this._authProvider.getUserAuth() !== null) {
-            this.userEmail = this._authProvider.getUserAuth().email;
-            this.fireDB.list('/users').valueChanges().subscribe( data => {
-              this.usersin = data.filter(user => {
-                if(user['email']) {
-                  return user['email'] === this.userEmail
-                }
-              });
-              if(this.usersin!==[]) {
-                this.userName = this.usersin[0].firstName + ' ' + this.usersin[0].lastName;
-              }
-            });
-          }
-        }, 4000);
-      }
-      catch(err) {
-        console.error(err);
-      }
+      // try {
+      //   setTimeout(() => {
+      //     if(this._authProvider.getUserAuth() !== null) {
+      //       this.userEmail = this._authProvider.getUserAuth().email;
+      //       this.fireDB.list('/users').valueChanges().subscribe( data => {
+      //         this.usersin = data.filter(user => {
+      //           if(user['email']) {
+      //             return user['email'] === this.userEmail
+      //           }
+      //         });
+      //         if(this.usersin!==[]) {
+      //           this.userName = this.usersin[0].firstName + ' ' + this.usersin[0].lastName;
+      //         }
+      //       });
+      //     }
+      //   }, 4000);
+      // }
+      // catch(err) {
+      //   console.error(err);
+      // }
     });
   }
   
@@ -75,6 +86,13 @@ export class MyApp {
     this.menu.close();
     this.nav.push(AgendaPage);
   }
+
+
+  chat() {
+    this.menu.close();
+    this.nav.push(ChatPage);
+  }
+
   about() {
     this.menu.close();
     this.nav.push(AboutPage);
@@ -101,6 +119,29 @@ export class MyApp {
   attendees(){
     this.menu.close();
     this.nav.push(AttendeesPage);
+  }
+  menuOpened(){
+    
+    this._camProvider.getPicture().then(res => {
+      this.profilePicURL = res;
+    });
+    this.userEmail = this._authProvider.getUserAuth().email;
+    this.fireDB.list('/users').valueChanges().subscribe( data => {
+      this.usersin = data.filter(user => {
+        if(user['email']) {
+          return user['email'] === this.userEmail
+        }
+      });
+      if(this.usersin!==[]) {
+        this.userName = this.usersin[0].firstName + ' ' + this.usersin[0].lastName;
+      }
+    });
+        
+  }
+
+  exhibitors(){
+    this.menu.close();
+    this.nav.push(ExhibitorsPage);
   }
 }
 

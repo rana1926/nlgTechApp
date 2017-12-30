@@ -9,16 +9,26 @@
 
 <ion-content padding>
   <ion-card>
-    <ion-grid *ngIf="person">
+    <ion-grid *ngIf="person"> 
       <ion-row>
-        <img src="https://qph.ec.quoracdn.net/main-thumb-100309-50-vctkfcvpnbuhpcpeiupepzbnppopgbph.jpeg" class="personalImg">
+        <img style="width: 30% ;height: 20%;" src="https://files.slack.com/files-pri/T7ABX87RP-F8M3V4L6B/image.png" class="personalImg">
         <ion-col class="titleCol">
+          <button ion-button small (click)="goToReportpage()" color="nlgen" style="padding: 17zpx 6px;border-radius: 50%; position: absolute;  right: 0;bottom:0.3px;" >
+                Rebort
+          </button>
           <h1>{{person.firstName + ' ' + person.lastName}}</h1>
-          <h3>{{person.position}}</h3>
+          <h3>{{person.position}}</h3>  
         </ion-col>
       </ion-row>
       <ion-row class="desRow">
-        {{person.description}}
+        <ion-col>
+          {{person.description}}
+        </ion-col>
+        <ion-col>
+          <button ion-button small (click)="goToCalender()" color="nlgen" style="padding: 17zpx 6px;border-radius: 50%; position: absolute;  right: 0;bottom:0px;" >
+          meting
+          </button>
+        </ion-col>
       </ion-row>
     </ion-grid>
   </ion-card>

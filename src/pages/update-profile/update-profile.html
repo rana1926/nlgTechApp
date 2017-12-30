@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="nlgen">
     <ion-title>Update Personal Profile</ion-title>
   </ion-navbar>
 
@@ -22,20 +22,32 @@
       <ion-input [(ngModel)]="user.lastName" type="text"></ion-input>
     </ion-item>
     <ion-item>
+      <ion-label floating>Country</ion-label>
+      <ion-select [(ngModel)]="user.country" type="text">
+        <ion-option *ngFor="let country of countries">{{country}}</ion-option>
+      </ion-select>
+      </ion-item>
+    <!-- <ion-item>
       <ion-label>Age</ion-label>
       <ion-input [(ngModel)]="user.age" type="text"></ion-input>
-    </ion-item>
-    <ion-item>
+    </ion-item> -->
+    <ion-item> 
       <ion-label>Position:</ion-label>
       <ion-input [(ngModel)]="user.position" type="text"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Description:</ion-label>
-      <ion-input [(ngModel)]="user.description" type="text"></ion-input>
+      
+      <ion-textarea  [(ngModel)]="user.description" >
+        </ion-textarea>
     </ion-item>
   </ion-list>
-
-  <button full round ion-button margin-bottom=1em (click)="goToPage('saved')" color=nlgen>Save</button>
-  <button full round ion-button (click)="goToPage('cancel')" color=nlgen>Cancel</button>
+  
+  <div style="text-align:center;">
+    <button  round ion-button (click)="goToPage('saved')" color="nlgen">Save
+    </button><br>
+    <button  round ion-button (click)="goToPage('cancel')" color="nlgen">Cancel
+    </button>
+</div>
 
 </ion-content>
