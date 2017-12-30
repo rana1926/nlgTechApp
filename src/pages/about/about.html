@@ -1,24 +1,28 @@
-<!--
-  Generated template for the AboutPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar color="nlgen">
-    <ion-title>ABOUT</ion-title>
+    <ion-title>ِAbout</ion-title>
+    <button  ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content padding >
-  <img *ngIf="items" align="middle" src={{items[1]}}>
-  <br>
-  <br>
+  <img align="middle" src="assets/imgs/aboutImg.png" class="aboutImg">
+  <div class="credits">
+    <p>Photo: C.Robbins/Mercy Corps</p>
+  </div>
   <div *ngIf="items">
-    {{items[0]}}
-  <!-- Child Protection and Adolescents & Youth. -->
-</div>
-  
+    <div class="textDiv">
+      <span class="boldSpan">No Lost Generation</span> is a multi-agency initiative co-led by <a href="https://www.unicef.org/">UNICEF</a>, <a href="https://www.mercycorps.org/">Mercy Corps</a>, <a href="https://www.savethechildren.net/">Save the Children</a>, and <a href="https://www.worldvision.org/">World Vision</a>, focused on supporting children and youth affected by the Syria and Iraq conflicts. The initiative brings together over 100 agencies who are working to prevent a lost generation of children and young people, focusing on Syria, Iraq, Lebanon, Jordan, Turkey, and Egypt.
+    </div>
+    <div class="textDiv">
+      NLG partners are working to achieve agreed outcomes essential for the education, protection, wellbeing and future of children and these young people. These outcomes fall under three pillars: <span class="boldSpan">Education, Child Protection</span> and <span class="boldSpan">Adolescents & Youth</span> .      
+    </div>
+    <div class="textDiv">
+      The 2018 NLG Tech Summit is focused on <span class="boldSpan">Pillar III of the NLG initiative: Adolescents & Youth</span>. Over one third of Syrian and Iraqi refugees are between 10 and 24 years old - there is an entire generation of young people living through conflict, displacement and the repercussions across the region. These young people are critical to building the future of the region, but they need our support to access education, dignified livelihoods, to participate in society and to rebuild their communities.
+    </div>  
+  </div>
 </ion-content>

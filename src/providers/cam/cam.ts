@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { storage } from 'firebase';
@@ -44,8 +43,8 @@ export class CamProvider {
     }
   }
 
-  getPicture() {
-    let uid = this._authProvider.getUserAuth().uid;
+  getPicture(uid) {
+    uid = uid ? uid : this._authProvider.getUserAuth().uid;
     return storage().ref(`profilePictures/${uid}`).getDownloadURL().then(res => res).catch(console.error);
   }
 

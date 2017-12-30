@@ -1,8 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
-import { NavController,Nav, NavParams } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { AboutPage } from'../about/about'
-import firebase from 'firebase';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { UpdateProfilePage } from '../update-profile/update-profile';
 import { CamProvider } from '../../providers/cam/cam';
@@ -34,7 +33,7 @@ export class PersonalProfViewPage {
         this.userName = this.userInfo.firstName + ' ' + this.userInfo.lastName;
       }
     });
-    this._camProvider.getPicture().then(res => {
+    this._camProvider.getPicture(null).then(res => {
       this.profilePicURL = res;
     });
   }

@@ -1,5 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { CamProvider } from '../../providers/cam/cam';
 import { ReportUserPage } from '../report-user/report-user';
 import { Calendar } from '@ionic-native/calendar';
 
@@ -10,14 +11,17 @@ import { Calendar } from '@ionic-native/calendar';
 
 export class PersonInfoPage {
   person;
-  obj;
+  picURL;
+  obj;  
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private calendar: Calendar
-    ) {
+    public _camProvider: CamProvider,
+    private calendar: Calendar) {
       this.person = this.navParams.get('person');
+      this._camProvider.getPicture(this.person.uid).then(res => this.picURL = res);
   }
+
   goToReportpage(){
     this.obj={ReportUser:this.person};
     console.log(this.obj)

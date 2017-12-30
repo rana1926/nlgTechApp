@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { AuthProvider } from '../../providers/auth/auth';
 import { UsersProvider } from '../../providers/users/users';
 import { Subscription } from 'rxjs/Subscription';
 import { PersonInfoPage } from '../person-info/person-info';
@@ -20,7 +19,6 @@ export class AttendeesPage {
   constructor (
     public navCtrl: NavController,
     public navParams: NavParams,
-    private _authProvider: AuthProvider,
     private _usersProvider: UsersProvider
   ) {
     this.getUsers();

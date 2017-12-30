@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import firebase from 'firebase';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AuthProvider } from '../../providers/auth/auth';
 import { AgendaPage } from '../agenda/agenda';
@@ -121,7 +120,7 @@ export class RegProfilePage {
     "Iraq",
     "Ireland",
     "Isle of Man",
-    "Israel (Occupied Palestine)",
+    "Israeli Occupation (Palestine)",
     "Italy",
     "Jamaica",
     "Japan",

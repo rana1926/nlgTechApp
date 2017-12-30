@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { AuthProvider } from '../../providers/auth/auth';
 import { UsersProvider } from '../../providers/users/users';
 import { ChatProvider } from '../../providers/chat/chat';
 import { Subscription } from 'rxjs/Subscription';
-import { PersonInfoPage } from '../person-info/person-info';
-
 
 @Component({
  selector: 'page-chat',
@@ -17,7 +14,6 @@ export class ChatPage {
   searchResults = [];
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
-    private _authProvider: AuthProvider,
     private _usersProvider: UsersProvider,
     public chatservice: ChatProvider) {
     this.getUsers();  

@@ -1,15 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
+import { NavController, AlertController, ToastController } from 'ionic-angular';
 import firebase from 'firebase';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { SigninPage } from '../signin/signin';
-import { firestore } from 'firebase/app';
-import { FirebaseApp } from 'angularfire2';
 import { AuthProvider } from '../../providers/auth/auth';
-import { AttendeesPage } from '../attendees/attendees';
 import { RegProfilePage } from '../reg-profile/reg-profile';
-import { AgendaPage } from '../agenda/agenda';
 import { PincodeController } from  'ionic2-pincode-input/dist/pincode';
 
 @Component({
@@ -23,8 +18,6 @@ export class SignupPage {
   code;
   constructor(
     private navCtrl: NavController, 
-    private navParams: NavParams, 
-    private angularFireAuth: AngularFireAuth, 
     private fireDB:AngularFireDatabase,
     private authProvider:AuthProvider,
     public pincodeCtrl: PincodeController,
