@@ -44,8 +44,8 @@ export class CamProvider {
     }
   }
 
-  getPicture() {
-    let uid = this._authProvider.getUserAuth().uid;
+  getPicture(uid) {
+    uid = uid ? uid : this._authProvider.getUserAuth().uid;
     return storage().ref(`profilePictures/${uid}`).getDownloadURL().then(res => res).catch(console.error);
   }
 
