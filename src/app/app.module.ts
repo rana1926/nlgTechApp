@@ -37,6 +37,8 @@ import {ExhibitorsPage} from '../pages/exhibitors/exhibitors';
 import  { ExhibitorsInfoPage } from '../pages/exhibitors-info/exhibitors-info';
 import { ChatProvider } from '../providers/chat/chat';
 import { ReportUserPage } from'../pages/report-user/report-user';
+import { EmailComposer } from '@ionic-native/email-composer';
+import { Calendar } from '@ionic-native/calendar';
 
 const IonicPro = Pro.init('ac56531e', {
   appVersion: "0.0.1"
@@ -117,7 +119,9 @@ var firebaseConfig = {
     AuthData,
     CamProvider,
     Camera,
-    ChatProvider
+    ChatProvider,
+    EmailComposer,
+    Calendar,
   ]
 })
 
