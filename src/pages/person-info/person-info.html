@@ -13,12 +13,22 @@
       <ion-row>
         <img *ngIf="picURL" [src]="picURL" class="personalImg">
         <ion-col class="titleCol">
+          <button ion-button small (click)="goToReportpage()" color="nlgen" style="padding: 17zpx 6px;border-radius: 50%; position: absolute;  right: 0;bottom:0.3px;" >
+                Rebort
+          </button>
           <h1>{{person.firstName + ' ' + person.lastName}}</h1>
-          <h3>{{person.position}}</h3>
+          <h3>{{person.position}}</h3>  
         </ion-col>
       </ion-row>
       <ion-row class="desRow">
-        {{person.description}}
+        <ion-col>
+          {{person.description}}
+        </ion-col>
+        <ion-col>
+          <button ion-button small (click)="goToCalender()" color="nlgen" style="padding: 17zpx 6px;border-radius: 50%; position: absolute;  right: 0;bottom:0px;" >
+          meting
+          </button>
+        </ion-col>
       </ion-row>
     </ion-grid>
   <!-- </ion-card> -->

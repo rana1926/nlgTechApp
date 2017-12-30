@@ -20,8 +20,31 @@
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Age</ion-label>
-      <ion-input (input)="checkFields()" type="number" [(ngModel)]="profile.age"></ion-input>
+      <ion-label floating>Country</ion-label>
+      <ion-select (ionChange)='checkFields()' [(ngModel)]="country">
+        <ion-option *ngFor="let country of countries">{{country}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating> Type of organization you work for</ion-label>
+      <ion-select (ionChange)='checkFields()' [(ngModel)]="organization">
+        <ion-option *ngFor="let organization of organizations">{{organization}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>NLG focus country/ countries you are interested in</ion-label>
+      <ion-select multiple="true" (ionChange)='checkFields()' [(ngModel)]="NLGCountry">
+        <ion-option *ngFor="let NLGCountry of NLGCountries">{{NLGCountry}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Area of interest:</ion-label>
+      <ion-select multiple="true" (ionChange)='checkFields()' [(ngModel)]="area">
+        <ion-option *ngFor="let area of areas">{{area}}</ion-option>
+      </ion-select>
     </ion-item>
 
     <ion-item>
