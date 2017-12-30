@@ -121,10 +121,10 @@ export class MyApp {
     this.nav.push(AttendeesPage);
   }
   menuOpened(){
-    
-    this._camProvider.getPicture().then(res => {
+    this._camProvider.getPicture(null).then(res => {
       this.profilePicURL = res;
     });
+    
     this.userEmail = this._authProvider.getUserAuth().email;
     this.fireDB.list('/users').valueChanges().subscribe( data => {
       this.usersin = data.filter(user => {

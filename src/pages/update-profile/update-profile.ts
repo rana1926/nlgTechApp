@@ -263,6 +263,7 @@ export class UpdateProfilePage {
     "Zambia",
     "Zimbabwe"
   ];
+
   user = {
     firstName: null,
     lastName: null,
@@ -287,7 +288,7 @@ export class UpdateProfilePage {
 
   ionViewDidLoad() {
     this.user = this.navParams.get('user');
-    this._camProvider.getPicture().then(val => {
+    this._camProvider.getPicture(null).then(val => {
       this.picURL = val;
     }).catch(err => console.error(err));
     console.log(this.user)

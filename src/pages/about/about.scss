@@ -1,3 +1,19 @@
 page-about {
+  span {
+    font-weight: bold;
+  }
 
+  .aboutImg {
+    display: block;
+  }
+
+  .textDiv {
+    margin-bottom: 0.4em;
+  }
+
+  .credits {
+    text-align: center;
+    font-weight: bold;
+    font-size: 80%;
+  }
 }

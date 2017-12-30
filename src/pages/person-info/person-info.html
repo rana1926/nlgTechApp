@@ -4,14 +4,14 @@
     <ion-title *ngIf="person">{{person.firstName + ' ' + person.lastName + "' "}}Info</ion-title>
   </ion-navbar>
 
-</ion-header> -->
+</ion-header>
 
 
 <ion-content padding>
-  <ion-card>
-    <ion-grid *ngIf="person"> 
+  <!-- <ion-card> -->
+    <ion-grid *ngIf="person">
       <ion-row>
-        <img style="width: 30% ;height: 20%;" src="https://files.slack.com/files-pri/T7ABX87RP-F8M3V4L6B/image.png" class="personalImg">
+        <img *ngIf="picURL" [src]="picURL" class="personalImg">
         <ion-col class="titleCol">
           <button ion-button small (click)="goToReportpage()" color="nlgen" style="padding: 17zpx 6px;border-radius: 50%; position: absolute;  right: 0;bottom:0.3px;" >
                 Rebort
@@ -31,5 +31,5 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-  </ion-card>
+  <!-- </ion-card> -->
 </ion-content>

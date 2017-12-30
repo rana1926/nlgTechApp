@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { AngularFireDatabase} from 'angularfire2/database';
-import { Console } from '@angular/core/src/console';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { ToastController } from 'ionic-angular';
 
