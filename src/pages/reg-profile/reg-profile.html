@@ -1,9 +1,7 @@
 <ion-header>
-
   <ion-navbar>
     <ion-title>New Profile Info</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 <ion-content padding>
@@ -54,7 +52,7 @@
 
     <ion-item>
       <ion-label floating>Personal Description</ion-label>
-      <ion-label floating style="font-size:75%">What do you want people to know about you!</ion-label>      
+      <ion-label floating style="font-size:75%">What do you want people to know about you!</ion-label>
       <ion-input (input)="checkFields()" type="text" [(ngModel)]="profile.description"></ion-input>
     </ion-item>
 
