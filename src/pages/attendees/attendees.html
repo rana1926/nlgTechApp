@@ -1,8 +1,7 @@
 <ion-header>
-
   <ion-navbar color="nlgen">
     <ion-title>Attendees</ion-title>
-    <button  ion-button menuToggle>
+    <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
   </ion-navbar>
@@ -15,14 +14,14 @@
 
   <ion-list>
     <ion-item *ngFor="let user of filteredUsers" (click)="showPerson(user)">
-      <ion-grid >
+      <ion-grid>
         <ion-row>
           <ion-avatar>
             <img src="https://files.slack.com/files-pri/T7ABX87RP-F8M3V4L6B/image.png">
           </ion-avatar>
           <ion-col>
             <h2>{{user.firstName + ' ' + user.lastName}}</h2>
-            <p>{{user.position}}</p>     
+            <p>{{user.position}}</p>
           </ion-col>
           <ion-icon name="information-circle-outline"></ion-icon>
         </ion-row>

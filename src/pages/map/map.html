@@ -1,21 +1,17 @@
-
-<ion-header >
-
+<ion-header>
   <ion-navbar color="nlgen">
-    <ion-title>LOCATION</ion-title>
+    <ion-title>Location</ion-title>
   </ion-navbar>
-
 </ion-header>
 
+<ion-content style="background-color:#00bfbb;">
+  <hr>
+  <div style="padding-left: 0.4cm; padding-top: 0.1cm; padding-bottom: 0.1cm; background-color:#00bfbb; color:white;" *ngIf="wifiVal">
+    WIFI ID: {{ wifiVal[0]}}
+  </div>
+  <div style="padding-left: 0.4cm;padding-top: 0.1cm; padding-bottom: 0.2cm; background-color:#00bfbb; color:white;" *ngIf="wifiVal">
+    WIFI Password: {{wifiVal[1]}}
+  </div>
 
-<ion-content style="background-color:#00bfbb;" >
-    <hr>
-    <div style="padding-left: 0.4cm; padding-top: 0.1cm; padding-bottom: 0.1cm; background-color:#00bfbb; color:white;" *ngIf="wifiVal">
-      WIFI NAME :{{ wifiVal[0]}}
-    </div>
-    <div style="padding-left: 0.4cm;padding-top: 0.1cm; padding-bottom: 0.2cm; background-color:#00bfbb; color:white;" *ngIf="wifiVal">
-       WIFI PASSWARD :{{wifiVal[1]}}
-    </div>
- 
-  <div  #map id="map"></div>
+  <div #map id="map"></div>
 </ion-content>
