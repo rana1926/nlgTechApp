@@ -1,7 +1,7 @@
-import { Component,ViewChild } from '@angular/core';
-import { NavController, NavParams,Nav } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, NavParams, Nav } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
-import  { ExhibitorsInfoPage } from '../exhibitors-info/exhibitors-info';
+import { ExhibitorsInfoPage } from '../exhibitors-info/exhibitors-info';
 
 @Component({
   selector: 'page-exhibitors',
@@ -11,23 +11,22 @@ export class ExhibitorsPage {
   exhibitors;
   exhibitor
   @ViewChild(Nav) nav: Nav;
-  constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              public fireDB:AngularFireDatabase,
-              ) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public fireDB: AngularFireDatabase,
+  ) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ExhibitorsPage');
-
     this.fireDB.list('/exhibitor').valueChanges().subscribe(res => {
       this.exhibitors = res;
       console.log(this.exhibitors)
     });
   }
 
-  goToInfo(exhibitor){
-    this.navCtrl.push(ExhibitorsInfoPage,{exhibitorInfo:exhibitor});
+  goToInfo(exhibitor) {
+    this.navCtrl.push(ExhibitorsInfoPage, { exhibitorInfo: exhibitor });
   }
-   
+
 }

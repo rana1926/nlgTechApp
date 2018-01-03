@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
-import { AboutPage } from'../about/about'
 import { AngularFireDatabase } from 'angularfire2/database';
 import { UpdateProfilePage } from '../update-profile/update-profile';
 import { CamProvider } from '../../providers/cam/cam';
@@ -20,16 +19,16 @@ export class PersonalProfViewPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private _authProvider: AuthProvider,
-    public fireDB:AngularFireDatabase,
+    public fireDB: AngularFireDatabase,
     public _camProvider: CamProvider) {
   }
-  
+
   ionViewDidLoad() {
     this.userEmail = this._authProvider.getUserAuth().email;
     this.fireDB.list('/users').valueChanges().subscribe(data => {
       this.userInfo = data.filter(user =>
         user['email'] === this.userEmail)[0];
-      if(this.userInfo!==[]) {
+      if (this.userInfo !== []) {
         this.userName = this.userInfo.firstName + ' ' + this.userInfo.lastName;
       }
     });
@@ -39,6 +38,6 @@ export class PersonalProfViewPage {
   }
 
   editProfile() {
-    this.navCtrl.push(UpdateProfilePage, {user: this.userInfo});
+    this.navCtrl.push(UpdateProfilePage, { user: this.userInfo });
   }
 }

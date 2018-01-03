@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { AuthProvider } from '../../providers/auth/auth';
 import { MenuController } from 'ionic-angular/components/app/menu-controller';
 
 @Component({
@@ -15,7 +14,6 @@ export class AgendaPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public fireDB: AngularFireDatabase,
-    private _authProvider: AuthProvider,
     private menu: MenuController
   ) { }
 

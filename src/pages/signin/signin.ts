@@ -5,9 +5,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { ResetPasswordPage } from '../reset-password/reset-password';
 import { AuthProvider } from '../../providers/auth/auth';
 import { AgendaPage } from '../agenda/agenda';
-import { PersonalProfViewPage } from '../personal-prof-view/personal-prof-view';
 import { SignupPage } from '../signup/signup';
-import { AttendeesPage } from '../attendees/attendees';
 
 @Component({
   selector: 'page-signin',
@@ -30,7 +28,7 @@ export class SigninPage {
   }
 
   signin() {
-    this.authProvider.login(this.email, this.password).then(() => this.navCtrl.setRoot(AttendeesPage)).catch(err => {
+    this.authProvider.login(this.email, this.password).then(() => this.navCtrl.setRoot(AgendaPage)).catch(err => {
       this.toastCtrl.create({
         message: err.message,
         duration: 6000
