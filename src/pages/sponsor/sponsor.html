@@ -1,17 +1,13 @@
-
 <ion-header>
-
   <ion-navbar color="nlgen">
-    <ion-title>SPONSOR</ion-title>
+    <ion-title>Sponsors</ion-title>
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content padding>
   <div style="margin-left: auto;margin-right: auto;display: block;">
     <a *ngFor="let sponsor of sponsors" href="{{sponsor.website}}" target="blank">
-      <img  style="width:100px; height:100px; padding: 0.2cm 0.2cm 0.2cm 0.2cm;"  src="{{sponsor.img}}">
+      <img style="width:100px; height:100px; padding: 0.2cm 0.2cm 0.2cm 0.2cm;" src="{{sponsor.img}}">
     </a>
   </div>
 </ion-content>
