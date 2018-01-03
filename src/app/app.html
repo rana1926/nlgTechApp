@@ -12,8 +12,8 @@
     <ion-list>
       <button style="background-color:#00bfbb" ion-item>
         <div style="color:white; font-size:90%; font-weight: bold; background-color:#00bfbb;padding-left: 0.1cm;padding-top: 0.1cm; padding-bottom: 0cm;" *ngIf="userEmail">
-            <img style="height:50px;
-            width:23%; border-radius: 70%;" [src]="profilePicURL" align="middle"/> <br><br>
+            <img style="height:50px; width:50px; border-radius: 70%;
+            margin: auto;" [src]="profilePicURL" align="middle"/> <br><br>
           <h6 style="font-size:150%;"> {{userName}}</h6>
           {{userEmail}}
         </div>
@@ -56,7 +56,7 @@
       <button style="background-color:#00bfbb" ion-item (click)='sponsor()'>
         <h2 style="font-weight:bold; color:aliceblue">
           <ion-icon name="card" style="width:25px; font-size: 25px;"></ion-icon>
-          Sponsor
+          Sponsors
         </h2>
       </button>
 
