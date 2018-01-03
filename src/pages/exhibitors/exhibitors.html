@@ -19,13 +19,13 @@
         
       <ion-thumbnail item-start>
       <a href="https://www.google.jo/" target="blank">
-        <img src={{exhibitor.img}}}>
+        <img id="imgStyle" src={{exhibitor.img}}}>
       </a>
       </ion-thumbnail>
       <h2>{{exhibitor.name}}</h2>
       
       <ion-thumbnail item-end>
-        <button ion-button round small color="nlgen" (click)="goToInfo(exhibitor)">info</button>
+        <button id="btnStyle" ion-button round small color="nlgen" (click)="goToInfo(exhibitor)">info</button>
       </ion-thumbnail>
     </ion-item>
   
