@@ -34,6 +34,24 @@ export class AttendeesPage {
     }
   }
 
+  filterBy(){
+
+    if (this.searchQuery === "name"){
+      console.log('name')
+    }
+    if (this.searchQuery === "organization"){
+      console.log('organization')
+    }
+    if (this.searchQuery === "position"){
+      console.log('position')
+    }
+    if (this.searchQuery === "organizationYouWork"){
+      console.log('organizationYouWork')
+    }
+
+  }
+    
+
   sortUsers() {
     this.users = this.users.sort((a,b) => b.firstName - a.firstName);
     this.filteredUsers = this.filteredUsers.sort((a,b) => b.firstName - a.firstName);
