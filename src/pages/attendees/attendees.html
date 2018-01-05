@@ -8,9 +8,20 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-item>
+  <!-- <ion-item>
     <ion-input type="text" placeholder="search" [(ngModel)]="searchQuery" (input)="filterUsers()"></ion-input>
-  </ion-item>
+  </ion-item> -->
+  <ion-list>
+    <ion-item>
+        <ion-input type="text" placeholder="search"  (input)="filterUsers()">Search By</ion-input>
+      <ion-select [(ngModel)]="searchQuery"(ionChange)="filterBy()">
+        <ion-option value="name">Name</ion-option>
+        <ion-option value="organization">Organization</ion-option>
+        <ion-option value="position">Position</ion-option>
+        <ion-option value="organizationYouWork">Type of organization you work for</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
 
   <ion-list>
     <ion-item *ngFor="let user of filteredUsers" (click)="showPerson(user)">
