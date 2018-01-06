@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { SpeakersInfoPage } from '../speakers-info/speakers-info'
 
 @Component({
   selector: 'page-speakers',
@@ -10,6 +11,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 export class SpeakersPage {
   speakerList;
+  speaker;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -23,6 +25,7 @@ export class SpeakersPage {
   }
 
   goToSpeakerInfo(speaker) {
-    
+    this.navCtrl.push(SpeakersInfoPage, { spekerInfo: speaker });
+    console.log(speaker)
   }
 }
