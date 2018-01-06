@@ -3,24 +3,25 @@
     <ion-title *ngIf="userName">
       Your Personal Profile
     </ion-title>
-    <button  ion-button menuToggle>
+    <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
   </ion-navbar>
 </ion-header>
 
-<ion-content >
+<ion-content>
   <div style="width:100%; height: 35%px; background-color:#00bfbb; size:100%;">
     <img id="profImg" [src]="profilePicURL" align="middle"/>
-    <h2 *ngIf="userName" style="text-align: center;">
+    <h2 *ngIf="userName" style="text-align:center;">
       {{userName}}
     </h2>
-    <h6 style="text-align: center;"> {{userEmail}} </h6>
+    <h6 style="text-align: center;">{{userEmail}}</h6>
     <br style="background-color:#00bfbb;">
   </div>
-  
+
   <ion-fab right bottom>
-    <button right bottom round ion-button (click)="editProfile()" id="fabButt" small color="nlgen" style="padding: 25px 13px 25px 13px;font-size: 18px;">Edit</button>
+    <button ion-fab (click)="editProfile()" id="fabButt" color="nlgen">
+      <ion-icon large name="more"></ion-icon>
+    </button>
   </ion-fab>
 </ion-content>
-

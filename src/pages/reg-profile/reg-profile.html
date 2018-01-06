@@ -19,44 +19,48 @@
 
     <ion-item>
       <ion-label floating>Country</ion-label>
-      <ion-select (ionChange)='checkFields()' [(ngModel)]="country">
-        <ion-option *ngFor="let country of countries">{{country}}</ion-option>
+      <ion-select (ionChange)='checkFields()' [(ngModel)]="profile.country">
+        <ion-option *ngFor="let country of sourcesArrays.countries">{{country}}</ion-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
-      <ion-label floating> Type of organization you work for</ion-label>
-      <ion-select (ionChange)='checkFields()' [(ngModel)]="organization">
-        <ion-option *ngFor="let organization of organizations">{{organization}}</ion-option>
+      <ion-label floating>Organization Name</ion-label>
+      <ion-input (input)="checkFields()" type="text" [(ngModel)]="profile.organizationName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Organization Type</ion-label>
+      <ion-select (ionChange)='checkFields()' [(ngModel)]="profile.organizationType">
+        <ion-option *ngFor="let organization of sourcesArrays.organizations">{{organization}}</ion-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>NLG focus country/ countries you are interested in</ion-label>
-      <ion-select multiple="true" (ionChange)='checkFields()' [(ngModel)]="NLGCountry">
-        <ion-option *ngFor="let NLGCountry of NLGCountries">{{NLGCountry}}</ion-option>
+      <ion-label floating>NLG countries interested in</ion-label>
+      <ion-select multiple="true" (ionChange)='checkFields()' [(ngModel)]="profile.NLGCountries">
+        <ion-option *ngFor="let NLGCountry of sourcesArrays.NLGCountries">{{NLGCountry}}</ion-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Area of interest:</ion-label>
-      <ion-select multiple="true" (ionChange)='checkFields()' [(ngModel)]="area">
-        <ion-option *ngFor="let area of areas">{{area}}</ion-option>
+      <ion-label floating>Fields of interest</ion-label>
+      <ion-select multiple="true" (ionChange)='checkFields()' [(ngModel)]="profile.interestAreas">
+        <ion-option *ngFor="let area of sourcesArrays.interestAreas">{{area}}</ion-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Position</ion-label>
+      <ion-label floating>Current Position</ion-label>
       <ion-input (input)="checkFields()" type="text" [(ngModel)]="profile.position"></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label floating>Personal Description</ion-label>
-      <ion-label floating style="font-size:75%">What do you want people to know about you!</ion-label>
-      <ion-input (input)="checkFields()" type="text" [(ngModel)]="profile.description"></ion-input>
+    <ion-item style="margin-top: 12px">
+      <ion-label stacked style="font-size: 100%">Personal Description</ion-label>
+      <ion-input placeholder="What do you want people to know about you!" (input)="checkFields()" type="text" [(ngModel)]="profile.description"></ion-input>
     </ion-item>
 
-    <button ion-button block large (click)="editProfileInfo()" style="background-color:#00bfbb; margin-top:2em" [disabled]="emptyFields">Continue</button>
+    <button ion-button block large (click)="registerProfile()" style="background-color:#00bfbb; margin-top:2em" [disabled]="emptyFields">Continue</button>
 
   </ion-list>
 </ion-content>

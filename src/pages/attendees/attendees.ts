@@ -15,7 +15,8 @@ export class AttendeesPage {
   users = [];
   filteredUsers = [];
   searchQuery = '';
-
+  placeHolder = 'search by name';
+  filterCriteria = "name";
   constructor (
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -25,34 +26,30 @@ export class AttendeesPage {
   }
 
   filterUsers() {
-    if(this.searchQuery!='') {
-      this.filteredUsers = this.users.filter(query => query.firstName.toLowerCase().includes(this.searchQuery.toLowerCase()) || query.lastName.includes(this.searchQuery.toLowerCase()));
-    this.sortUsers();      
+    let searchQueryInner = this.searchQuery.toLowerCase();
+    let filterCriteriaInner = {
+      "name of organization": "organizationName",
+      "type of organization": "organizationType",
+      "position": "position"
+    }
+
+    if(searchQueryInner !== '' && this.filterCriteria === 'name') {
+      this.filteredUsers = this.users.filter(user =>
+        user.firstName.toLowerCase().includes(searchQueryInner) ||
+        user.lastName.toLowerCase().includes(searchQueryInner));
+    } else if(searchQueryInner !== '' && this.filterCriteria !== 'name') {
+      this.filteredUsers = this.users.filter(user =>
+        user[filterCriteriaInner[this.filterCriteria]].toLowerCase().includes(searchQueryInner))
     } else {
       this.filteredUsers = this.users;
-    this.sortUsers();      
     }
   }
 
-  filterBy(){
-
-    if (this.searchQuery === "name"){
-      console.log('name')
-    }
-    if (this.searchQuery === "organization"){
-      console.log('organization')
-    }
-    if (this.searchQuery === "position"){
-      console.log('position')
-    }
-    if (this.searchQuery === "organizationYouWork"){
-      console.log('organizationYouWork')
-    }
-
+  setFilterCriteria() {
+    this.placeHolder = `search by ${this.filterCriteria}`;
   }
-    
 
-  sortUsers() {
+  sortAttendees() {
     this.users = this.users.sort((a,b) => b.firstName - a.firstName);
     this.filteredUsers = this.filteredUsers.sort((a,b) => b.firstName - a.firstName);
   }

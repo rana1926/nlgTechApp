@@ -6,11 +6,11 @@
 
 <ion-content style="background-color:#00bfbb;">
   <hr>
-  <div style="padding-left: 0.4cm; padding-top: 0.1cm; padding-bottom: 0.1cm; background-color:#00bfbb; color:white;" *ngIf="wifiVal">
-    WIFI ID: {{ wifiVal[0]}}
+  <div style="padding-left: 0.4cm; padding-top: 0.1cm; padding-bottom: 0.1cm; background-color:#00bfbb; color:white; font-weight:bold" *ngIf="wifiVal">
+    Wi-fi Name: {{wifiVal[0]}}
   </div>
-  <div style="padding-left: 0.4cm;padding-top: 0.1cm; padding-bottom: 0.2cm; background-color:#00bfbb; color:white;" *ngIf="wifiVal">
-    WIFI Password: {{wifiVal[1]}}
+  <div style="padding-left: 0.4cm;padding-top: 0.1cm; padding-bottom: 0.2cm; background-color:#00bfbb; color:white; font-weight:bold" *ngIf="wifiVal">
+    Wi-fi Password: {{wifiVal[1]}}
   </div>
 
   <div #map id="map"></div>

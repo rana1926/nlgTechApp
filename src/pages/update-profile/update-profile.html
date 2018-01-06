@@ -6,7 +6,7 @@
 
 <ion-content>
   <img *ngIf="picURL" id="profImg" [src]="picURL">
-  <button ion-fab mini color=nlgen id="camButt" (click)=selectSrc()>
+  <button ion-fab color=nlgen id="camButt" (click)=selectSrc()>
     <ion-icon name="camera"></ion-icon>
   </button>
 
@@ -22,19 +22,41 @@
     <ion-item>
       <ion-label floating>Country</ion-label>
       <ion-select [(ngModel)]="user.country" type="text">
-        <ion-option *ngFor="let country of countries">{{country}}</ion-option>
+        <ion-option *ngFor="let country of sourcesArrays.countries">{{country}}</ion-option>
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label>Position:</ion-label>
+      <ion-label floating>Organization Name</ion-label>
+      <ion-input [(ngModel)]="user.organizationName" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Organization Type</ion-label>
+      <ion-select [(ngModel)]="user.organizationType" type="text">
+        <ion-option *ngFor="let organizationType of sourcesArrays.organizations">{{organizationType}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Countries of interest</ion-label>
+      <ion-select multiple="true" [(ngModel)]="user.NLGCountries" type="text">
+        <ion-option *ngFor="let NLGCountry of sourcesArrays.NLGCountries">{{NLGCountry}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Fields of interest</ion-label>
+      <ion-select multiple="true" [(ngModel)]="user.interestAreas" type="text">
+        <ion-option *ngFor="let interestArea of sourcesArrays.interestAreas">{{interestArea}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Position</ion-label>
       <ion-input [(ngModel)]="user.position" type="text"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Description:</ion-label>
-
+      <ion-label>Description</ion-label>
       <ion-textarea [(ngModel)]="user.description">
       </ion-textarea>
     </ion-item>
+
   </ion-list>
 
   <div style="text-align:center;">
