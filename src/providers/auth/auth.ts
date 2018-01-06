@@ -19,7 +19,10 @@ export class AuthProvider {
 
   updateUserInfo(profile, uid) {
     return this._angularFireDatabase.database.ref('users/' + uid).set(profile);
+  }
 
+  setProfPicURL(url, uid) {
+    return this._angularFireDatabase.database.ref(`users/${uid}`).update({"picUrl": url});
   }
 
   login(email, password) {

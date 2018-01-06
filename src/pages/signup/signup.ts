@@ -30,7 +30,7 @@ export class SignupPage {
   }
 
   goToSignin() {
-    this.navCtrl.push(SigninPage)
+    this.navCtrl.push(SigninPage, {hasPinCode: true})
   }
 
   signup() {
@@ -40,14 +40,6 @@ export class SignupPage {
         duration: 6000
       }).present();
     });
-  }
-
-  ionViewDidLoad() {
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        this.navCtrl.setRoot(AgendaPage);
-      }
-    })
   }
 
 }

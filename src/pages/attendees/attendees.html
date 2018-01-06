@@ -8,17 +8,14 @@
 </ion-header>
 
 <ion-content padding>
-  <!-- <ion-item>
-    <ion-input type="text" placeholder="search" [(ngModel)]="searchQuery" (input)="filterUsers()"></ion-input>
-  </ion-item> -->
   <ion-list>
     <ion-item>
-        <ion-input type="text" placeholder="search"  (input)="filterUsers()">Search By</ion-input>
-      <ion-select [(ngModel)]="searchQuery"(ionChange)="filterBy()">
-        <ion-option value="name">Name</ion-option>
-        <ion-option value="organization">Organization</ion-option>
+      <ion-input [(ngModel)]="searchQuery" type="text" [placeholder]="placeHolder" (input)="filterUsers()">Search By</ion-input>
+      <ion-select [(ngModel)]="filterCriteria" (ionChange)="setFilterCriteria()">
+        <ion-option value="name" selected>Name</ion-option>
+        <ion-option value="name of organization">Organization Name</ion-option>
+        <ion-option value="type of organization">Organization Type</ion-option>
         <ion-option value="position">Position</ion-option>
-        <ion-option value="organizationYouWork">Type of organization you work for</ion-option>
       </ion-select>
     </ion-item>
   </ion-list>
@@ -28,7 +25,7 @@
       <ion-grid>
         <ion-row>
           <ion-avatar>
-            <img src="https://files.slack.com/files-pri/T7ABX87RP-F8M3V4L6B/image.png">
+            <img [src]="user.picUrl">
           </ion-avatar>
           <ion-col>
             <h2>{{user.firstName + ' ' + user.lastName}}</h2>

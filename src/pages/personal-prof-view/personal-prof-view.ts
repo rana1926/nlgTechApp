@@ -32,9 +32,7 @@ export class PersonalProfViewPage {
         this.userName = this.userInfo.firstName + ' ' + this.userInfo.lastName;
       }
     });
-    this._camProvider.getPicture(null).then(res => {
-      this.profilePicURL = res;
-    });
+    this._camProvider.getPicture(null).then(res => this.profilePicURL = res);
   }
 
   editProfile() {
