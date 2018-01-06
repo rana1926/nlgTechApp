@@ -36,8 +36,10 @@ export class CamProvider {
     if(this.picture !== '') {
       let uid = this._authProvider.getUserAuth().uid;
       const pictures = storage().ref(`profilePictures/${uid}`);
-      return pictures.putString(this.picture, 'data_url');
-    }
+      pictures.putString(this.picture, 'data_url').then(() =>
+      this.getPicture(null).then(url =>
+        this._authProvider.setProfPicURL(url, uid))
+      )}
     else {
       return console.error('No Picture was Taken or Chosen!');
     }
@@ -45,7 +47,7 @@ export class CamProvider {
 
   getPicture(uid) {
     uid = uid ? uid : this._authProvider.getUserAuth().uid;
-    return storage().ref(`profilePictures/${uid}`).getDownloadURL().then(res => res).catch(console.error);
+    return storage().ref(`profilePictures/${uid}`).getDownloadURL();
   }
 
 }

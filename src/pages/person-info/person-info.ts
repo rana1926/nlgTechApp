@@ -12,26 +12,25 @@ import { Calendar } from '@ionic-native/calendar';
 export class PersonInfoPage {
   person;
   picURL;
-  obj;  
+  obj;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public _camProvider: CamProvider,
     private calendar: Calendar) {
-      this.person = this.navParams.get('person');
-      this._camProvider.getPicture(this.person.uid).then(res => this.picURL = res);
+    this.person = this.navParams.get('person');
+    this._camProvider.getPicture(this.person.uid).then(res => this.picURL = res);
   }
 
-  goToReportpage(){
-    this.obj={ReportUser:this.person};
-    console.log(this.obj)
+  goToReportpage() {
+    this.obj = {ReportUser: this.person};
     this.navCtrl.push(ReportUserPage, this.obj);
-
   }
-  goToCalender(){
+
+  goToCalender() {
     this.calendar.openCalendar(new Date()).then(
-        (msg) => { console.log(msg); },
-        (err) => { console.log(err); }
+      (msg) => { console.log(msg); },
+      (err) => { console.log(err); }
     );
   }
 

@@ -4,6 +4,9 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { PincodeController } from 'ionic2-pincode-input';
 import firebase from 'firebase';
 import { SignupPage } from '../signup/signup';
+import { SigninPage } from '../signin/signin';
+import { AuthProvider } from '../../providers/auth/auth';
+import { AgendaPage } from '../agenda/agenda';
 
 @Component({
   selector: 'page-pin-code',
@@ -18,11 +21,16 @@ export class PinCodePage {
     public pincodeCtrl: PincodeController,
     private alertCtrl: AlertController,
     private menu: MenuController,
+    private _auth: AuthProvider
   ) {
   }
 
   ionViewDidLoad() {
     this.menu.enable(false, "menu");
+  }
+
+  goToSignIn() {
+    this.navCtrl.push(SigninPage, {hasPinCode: false});
   }
 
   openPinCode() {
@@ -61,5 +69,11 @@ export class PinCodePage {
         })
       }
     })
+  }
+  
+  ionCiewDidLoad() {
+    if(this._auth.getUserAuth()) {
+      this.navCtrl.setRoot(AgendaPage);
+    }
   }
 }

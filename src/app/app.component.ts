@@ -37,7 +37,7 @@ import { Calendar } from '@ionic-native/calendar';
 export class MyApp {
 
   rootPage: any = PinCodePage;
-  
+
   @ViewChild(Nav) nav: Nav;
   userName;
   userEmail;
@@ -67,13 +67,10 @@ export class MyApp {
     this.menu.close();
     this.nav.push(AgendaPage);
   }
-
-
   chat() {
     this.menu.close();
     this.nav.push(ChatPage);
   }
-
   about() {
     this.menu.close();
     this.nav.push(AboutPage);
@@ -89,7 +86,7 @@ export class MyApp {
   signout() {
     this._authProvider.signout()
       .then(() => {
-        this.menu.close().then(() => this.nav.setRoot(SigninPage));
+        this.menu.close().then(() => this.nav.setRoot(PinCodePage));
       })
       .catch(console.error);
   }
@@ -117,9 +114,7 @@ export class MyApp {
         this.userName = this.usersin[0].firstName + ' ' + this.usersin[0].lastName;
       }
     });
-
   }
-
   exhibitors() {
     this.menu.close();
     this.nav.push(ExhibitorsPage);

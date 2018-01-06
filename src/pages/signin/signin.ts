@@ -16,6 +16,7 @@ export class SigninPage {
   email;
   password;
   uid;
+  hasPinCode;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -23,8 +24,9 @@ export class SigninPage {
     public fireDB: AngularFireDatabase,
     private toastCtrl: ToastController,
     public authProvider: AuthProvider) {
-    this.email = 'duhaali@gmail.com';
+    this.email = 'experimentaluseremail@e.com';
     this.password = '11111111';
+    this.hasPinCode = this.navParams.get('hasPinCode');
   }
 
   signin() {
