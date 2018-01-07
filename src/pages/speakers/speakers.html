@@ -6,7 +6,7 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let speaker of speakerList" (click)="goToSpeakerInfo()">
+    <ion-item *ngFor="let speaker of speakerList" (click)="goToSpeakerInfo(speaker)">
       <ion-thumbnail item-start>
         <img src={{speaker.img}}>
       </ion-thumbnail>

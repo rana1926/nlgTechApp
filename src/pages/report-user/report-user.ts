@@ -14,6 +14,7 @@ export class ReportUserPage {
   CarantUserEmail;
   CarantUserUid;
   msg;
+  email1;
   constructor(
               public navCtrl: NavController, 
               public navParams: NavParams,
@@ -31,6 +32,10 @@ export class ReportUserPage {
     this.CarantUserEmail = this.authProvider.getUserAuth().email;
     this.CarantUserUid = this.authProvider.getUserAuth().uid
     console.log(this.CarantUserEmail,this.CarantUserUid )
+      this.firDb.list('/reportEmail').valueChanges().subscribe(res => {
+        this.email1 = res;
+        console.log(this.email1[0])
+      });
 
     
   }
@@ -44,10 +49,11 @@ export class ReportUserPage {
     }
     console.log(reportObj)
     this.firDb.database.ref('reports').push(reportObj);
-
+  
+    
 let email = {
-  to: 'duhaali415@gmail.com',
-  cc: 'dohamol415@gmail.com',
+  to: this.email1[0],
+  cc: this.email1[0],
   subject: 'report user',
   body: 'Hi , I will report user :' + reportObj.reported + 'His uid is : ' + reportObj.reportedUid ,
   isHtml: true
