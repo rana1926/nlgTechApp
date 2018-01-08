@@ -29,7 +29,8 @@ import { ReportUserPage } from '../pages/report-user/report-user';
 import { PinCodePage } from "../pages/pin-code/pin-code";
 import { EmailComposer } from '@ionic-native/email-composer';
 import { Calendar } from '@ionic-native/calendar';
-import { SpeakersInfoPage } from '../pages/speakers-info/speakers-info'
+import { SpeakersInfoPage } from '../pages/speakers-info/speakers-info';
+import { AppTeamPage } from '../pages/app-team/app-team';
 
 @Component({
   templateUrl: 'app.html'
