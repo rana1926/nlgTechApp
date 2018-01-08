@@ -37,7 +37,7 @@ import { SpeakersInfoPage } from '../pages/speakers-info/speakers-info'
 
 export class MyApp {
 
-  rootPage: any = PinCodePage;
+  rootPage: any = SpeakersPage;
 
   @ViewChild(Nav) nav: Nav;
   userName;
