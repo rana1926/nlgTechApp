@@ -4,8 +4,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { AuthData } from  '../../providers/auth-data/auth-data';
 import {FormControl} from '@angular/forms';
 
-@IonicPage()
-
 @Component({
   selector: 'page-reset-password',
   templateUrl: 'reset-password.html',
