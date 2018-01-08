@@ -38,7 +38,7 @@ import { AppTeamPage } from '../pages/app-team/app-team';
 
 export class MyApp {
 
-  rootPage: any = PinCodePage;
+  rootPage: any = SpeakersPage;
 
   @ViewChild(Nav) nav: Nav;
   userName;
