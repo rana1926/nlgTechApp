@@ -339,6 +339,7 @@ export class RegProfilePage {
     let email = this._authProvider.getUserAuth().email;
     this.profile['uid'] = uid;
     this.profile['email'] = email;
+    this.profile['picUrl'] = 'https://i.imgur.com/5RAenOq.png';
     this.FirDB.database.ref('users/'+uid).set(this.profile).then(() => this.navCtrl.setRoot(AgendaPage)).catch( err => console.error(err));
   }
 }
