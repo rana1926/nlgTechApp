@@ -94,6 +94,7 @@
     </plugin>
     <plugin name="cordova-plugin-email-composer" spec="^0.8.11" />
     <plugin name="cordova-plugin-calendar" spec="^5.0.0" />
+    <plugin name="cordova-plugin-camera" spec="^4.0.1" />
     <engine name="ios" spec="4.5.4" />
     <engine name="android" spec="6.3.0" />
 </widget>
