@@ -9,7 +9,7 @@
   <ion-list no-lines>
     <ion-item *ngFor="let user of users" (click)="initChat(user)">
 	  <ion-avatar item-start>
-	    <img src="http://lentech.org/images/no_avatar.png">
+	    <img [src]="user.picUrl">
 	  </ion-avatar>
 	  <h2>{{user.firstName + ' ' + user.lastName}}</h2>
 	  <p>{{user.position}}</p>

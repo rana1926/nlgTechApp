@@ -57,11 +57,6 @@ export class ResetPasswordPage {
       });
     }
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ResetPasswordPage');
-  }
-
 }
 
 
