@@ -1,36 +1,22 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, NavController, Nav, MenuController, LoadingController } from 'ionic-angular';
+import { Platform, Nav, MenuController, LoadingController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Geolocation } from '@ionic-native/geolocation';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 import { MapPage } from '../pages/map/map';
-import { SplashScreenPage } from '../pages/splash-screen/splash-screen';
-import { SignupPage } from '../pages/signup/signup';
 import { SigninPage } from '../pages/signin/signin';
 import { AgendaPage } from '../pages/agenda/agenda';
 import { AboutPage } from '../pages/about/about';
 import { SpeakersPage } from '../pages/speakers/speakers';
 import { SponsorPage } from '../pages/sponsor/sponsor';
 import { AttendeesPage } from '../pages/attendees/attendees';
-import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { AuthProvider } from '../providers/auth/auth';
-import firebase from 'firebase';
-import { RegProfilePage } from '../pages/reg-profile/reg-profile';
 import { PersonalProfViewPage } from '../pages/personal-prof-view/personal-prof-view';
-import { UpdateProfilePage } from '../pages/update-profile/update-profile';
 import { CamProvider } from '../providers/cam/cam';
 import { ExhibitorsPage } from '../pages/exhibitors/exhibitors';
-import { ExhibitorsInfoPage } from '../pages/exhibitors-info/exhibitors-info';
 import { ChatPage } from '../pages/chat/chat';
-import { ReportUserPage } from '../pages/report-user/report-user';
 import { PinCodePage } from "../pages/pin-code/pin-code";
-import { EmailComposer } from '@ionic-native/email-composer';
-import { Calendar } from '@ionic-native/calendar';
-import { SpeakersInfoPage } from '../pages/speakers-info/speakers-info';
-import { AppTeamPage } from '../pages/app-team/app-team';
 
 @Component({
   templateUrl: 'app.html'
@@ -49,15 +35,14 @@ export class MyApp {
     private platform: Platform,
     private statusBar: StatusBar,
     private splashScreen: SplashScreen,
-    private angularFireAuth: AngularFireAuth,
     private menu: MenuController,
     private _authProvider: AuthProvider,
     public fireDB: AngularFireDatabase,
     public _camProvider: CamProvider
   ) {
-    platform.ready().then(() => {
-      statusBar.styleDefault();
-      splashScreen.hide();
+    this.platform.ready().then(() => {
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
     });
   }
 

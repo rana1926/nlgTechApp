@@ -8,6 +8,7 @@ import { ChatProvider } from '../../providers/chat/chat';
   selector: 'page-userchat',
   templateUrl: 'userchat.html',
 })
+
 export class UserchatPage {
   @ViewChild('content') content: Content;
   friend: any;
@@ -15,8 +16,13 @@ export class UserchatPage {
   allmessages = [];
   photoURL;
   imgornot;
-	constructor(public navCtrl: NavController, public navParams: NavParams, public chatservice: ChatProvider,
-	public events: Events, public zone: NgZone, public loadingCtrl: LoadingController) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public chatservice: ChatProvider,
+    public events: Events,
+    public zone: NgZone,
+    public loadingCtrl: LoadingController) {
     this.friend = this.chatservice.friend;
     this.scrollto();
     this.events.subscribe('newmessage', () => {
@@ -32,7 +38,7 @@ export class UserchatPage {
         }
       })
     })
-	}
+  }
 
   addmessage() {
     this.chatservice.addnewmessage(this.newmessage).then(() => {

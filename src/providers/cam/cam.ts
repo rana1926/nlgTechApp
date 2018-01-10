@@ -27,9 +27,14 @@ export class CamProvider {
       cameraDirection: this.cam.Direction.FRONT
     }
 
-    const res = await this.cam.getPicture(camOptions);
-    this.picture = `data:image/jpeg;base64,${res}`;
-    return this.picture;
+    try {
+      const res = await this.cam.getPicture(camOptions);
+      this.picture = `data:image/jpeg;base64,${res}`;
+      return this.picture;
+    }
+    catch(err) {
+      console.error(err);
+    }
   }
   
   postPicture() {
