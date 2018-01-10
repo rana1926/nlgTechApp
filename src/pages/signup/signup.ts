@@ -25,8 +25,6 @@ export class SignupPage {
     private alertCtrl: AlertController,
     private toastCtrl: ToastController
   ) {
-    this.email = 'duha@gmail.com'
-    this.password = '11111111';
   }
 
   goToSignin() {
