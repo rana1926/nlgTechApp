@@ -17,6 +17,7 @@ import { CamProvider } from '../providers/cam/cam';
 import { ExhibitorsPage } from '../pages/exhibitors/exhibitors';
 import { ChatPage } from '../pages/chat/chat';
 import { PinCodePage } from "../pages/pin-code/pin-code";
+import { AppTeamPage } from '../pages/app-team/app-team';
 
 @Component({
   templateUrl: 'app.html'
@@ -105,6 +106,10 @@ export class MyApp {
   exhibitors() {
     this.menu.close();
     this.nav.push(ExhibitorsPage);
+  }
+  team() {
+    this.menu.close();
+    this.nav.push(AppTeamPage);
   }
 }
 

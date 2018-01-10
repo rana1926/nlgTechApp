@@ -1,3 +1,30 @@
 page-app-team {
+    .info-style {
+        position: absolute;
+        bottom: 120px;
+        left: 30px;
+    }
+
+    ion-card {
+    position: relative;
+    text-align: center;
+    }
+
+    .card-title {
+    position: absolute;
+    top: 82%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+    }
+
+    .card-subtitle {
+    font-size: 1.0em;
+    position: absolute;
+    top: 93%;
+    width: 100%;
+    color: #fff;
+    }
 
 }
