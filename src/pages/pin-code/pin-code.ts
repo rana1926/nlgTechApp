@@ -51,9 +51,9 @@ export class PinCodePage {
             if (_snapshot.val()[i].value === code && _snapshot.val()[i].is_active === true) {
               flag = true;
               let ref = this.fireDB.database.ref('codes/' + i);
-              // if(code!=='000000') {
-              //   ref.update({ is_active: false });
-              // }
+              if(code!=='090909') {
+                ref.update({ is_active: false });
+              }
             }
           }
           if (flag) {
