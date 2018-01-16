@@ -1,11 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, Nav, MenuController, LoadingController } from 'ionic-angular';
+import { Platform, Nav, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 import { MapPage } from '../pages/map/map';
-import { SigninPage } from '../pages/signin/signin';
 import { AgendaPage } from '../pages/agenda/agenda';
 import { AboutPage } from '../pages/about/about';
 import { SpeakersPage } from '../pages/speakers/speakers';

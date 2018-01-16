@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { SignupPage } from '../signup/signup';
+import { NavController, NavParams } from 'ionic-angular';
+import { PinCodePage } from '../pin-code/pin-code';
 
 @Component({
   selector: 'page-splash-screen',
@@ -15,7 +15,7 @@ export class SplashScreenPage {
   ionViewDidLoad() {
     var that = this;
     setTimeout(function(){ 
-      that.navCtrl.push(SignupPage);
+      that.navCtrl.push(PinCodePage);
      }, 3000);
     
   }

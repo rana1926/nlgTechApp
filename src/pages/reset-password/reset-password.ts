@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthData } from  '../../providers/auth-data/auth-data';
 import {FormControl} from '@angular/forms';
+import { SigninPage } from '../signin/signin';
 
 @Component({
   selector: 'page-reset-password',
