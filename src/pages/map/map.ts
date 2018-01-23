@@ -41,13 +41,6 @@ export class MapPage {
     public fireDB: AngularFireDatabase) {
   }
 
-  ionViewDidLoad() {
-    // this.fireDB.list('/wifi').valueChanges().subscribe(res => {
-    //   this.wifiVal = res;
-    // });
-
-  }
-
   ngAfterViewInit() {
     this.platform.ready().then(() => {
       this.loadMap();
@@ -61,13 +54,13 @@ export class MapPage {
   loadMap() {
     this.map = new google.maps.Map(this.mapElement.nativeElement, {
       zoom: 19,
-      center: { lat: 31.9443466, lng: 35.9212269 },
+      center: { lat: 31.9696561, lng: 35.8330706 },
     });
 
     var marker = new google.maps.Marker({
-      position: { lat: 31.9443466, lng: 35.9212269 },
+      position: { lat: 31.9696561, lng: 35.8330706 },
       map: this.map,
-      title: "titel"
+      title: "King Hussein Business Park Auditorium and Conference Center"
     });
   }
 }
