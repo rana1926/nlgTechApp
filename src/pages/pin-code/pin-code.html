@@ -6,9 +6,17 @@
   </a>
   <div style=" text-align: center;color:#00bfbb;font-size:110% ;font-weight: bold; margin-top: -50px; margin-bottom:40px">2018 NLG Tech Summit </div>
 
-  <div style="margin-top:6em">
-  <button ion-button full large (click)="openPinCode()" style="background-color:#00bfbb; margin-bottom:1em">Enter Your Code</button>
-  <!-- <h3 style="color:#00bfbb; text-align:center; margin-top: 0.5em; margin-bottom:0.5em">Or</h3> -->
-  <button ion-button full large (click)="goToSignIn()" style="background-color:#00bfbb; margin:0%">Sign In</button>
-  </div>  
+  <ion-grid id="grid">
+    <ion-row style="margin-bottom:5em"></ion-row>
+    <ion-row>
+      <ion-col col-1></ion-col>
+      <ion-col col-10>
+        <button ion-button full (click)="openPinCode()" style="background-color:#00bfbb; margin-bottom:1em">Enter Your Code</button>
+        <!-- <h3 style="color:#00bfbb; text-align:center; margin-top: 0.5em; margin-bottom:0.5em">Or</h3> -->
+        <button ion-button full (click)="goToSignIn()" style="background-color:#00bfbb; margin:0%">Sign In</button>
+      </ion-col>
+      <ion-col col-1></ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>
