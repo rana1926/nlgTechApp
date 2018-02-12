@@ -13,6 +13,7 @@ import { PincodeController } from 'ionic2-pincode-input/dist/pincode';
 export class SignupPage {
   email;
   password;
+  passwordConfirmation;
   code;
   constructor(
     private navCtrl: NavController,
@@ -23,16 +24,23 @@ export class SignupPage {
   }
 
   goToSignin() {
-    this.navCtrl.push(SigninPage, {hasPinCode: true})
+    this.navCtrl.push(SigninPage, { hasPinCode: true })
   }
 
   signup() {
-    this.authProvider.registerUser(this.email, this.password).then(() => this.navCtrl.setRoot(RegProfilePage)).catch(err => {
+    if (this.password === this.passwordConfirmation) {
+      this.authProvider.registerUser(this.email, this.password).then(() => this.navCtrl.setRoot(RegProfilePage)).catch(err => {
+        this.toastCtrl.create({
+          message: err.message,
+          duration: 6000
+        }).present();
+      });
+    } else {
       this.toastCtrl.create({
-        message: err.message,
-        duration: 6000
+        message: "password and confirmation don't match, please try again",
+        duration: 4000
       }).present();
-    });
+    }
   }
 
 }
