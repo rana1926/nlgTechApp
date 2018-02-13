@@ -6,7 +6,7 @@ import { ResetPasswordPage } from '../reset-password/reset-password';
 import { AuthProvider } from '../../providers/auth/auth';
 import { AgendaPage } from '../agenda/agenda';
 import { SignupPage } from '../signup/signup';
-
+import { PinCodePage } from '../pin-code/pin-code';
 @Component({
   selector: 'page-signin',
   templateUrl: 'signin.html',
@@ -42,6 +42,9 @@ export class SigninPage {
 
   goToResetPassword(): void {
     this.navCtrl.push(ResetPasswordPage);
+  }
+  goToPinCode(){
+    this.navCtrl.push(PinCodePage);
   }
 
 }

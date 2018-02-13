@@ -6,25 +6,27 @@ page-app-team {
     }
 
     ion-card {
-    position: relative;
-    text-align: center;
+        position: relative;
+        text-align: center;
     }
 
     .card-title {
-    position: absolute;
-    top: 82%;
-    font-size: 2.0em;
-    width: 100%;
-    font-weight: bold;
-    color: #fff;
+        position: absolute;
+        top: 82%;
+        font-size: 2.0em;
+        width: 100%;
+        font-weight: bold;
+        color: #fff;
+        text-shadow: 9px 9px 9px rgb(73, 73, 73);
     }
 
     .card-subtitle {
-    font-size: 1.0em;
-    position: absolute;
-    top: 93%;
-    width: 100%;
-    color: #fff;
+        font-size: 1.0em;
+        position: absolute;
+        top: 93%;
+        width: 100%;
+        color: #fff;
+        text-shadow: 9px 9px 9px rgb(73, 73, 73);
     }
 
 }
