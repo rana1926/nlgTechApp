@@ -6,12 +6,16 @@ import { Events } from 'ionic-angular';
 export class ChatProvider {
 	firechats = firebase.database().ref('/chats');
 	friend: any;
+	picUrl;
 	friendmessages = [];
 	constructor(public events: Events) {
 	}
 
 	initializeChat(friend) {
 		this.friend = friend;
+		firebase.database().ref('/users/'+firebase.auth().currentUser.uid).on('value', (snapshot) => {
+			this.picUrl = snapshot.val().picUrl;
+		});
 	}
 
 	addnewmessage(msg) {
