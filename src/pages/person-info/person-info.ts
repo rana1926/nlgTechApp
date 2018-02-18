@@ -19,11 +19,11 @@ export class PersonInfoPage {
     public _camProvider: CamProvider,
     private calendar: Calendar) {
     this.person = this.navParams.get('person');
-    this._camProvider.getPicture(this.person.uid).then(res => this.picURL = res);
+    this._camProvider.getPicture(this.person.uid).then(res => this.picURL = res).catch(() => this.picURL = "https://i.imgur.com/5RAenOq.png");
   }
 
   goToReportpage() {
-    this.obj = {ReportUser: this.person};
+    this.obj = { ReportUser: this.person };
     this.navCtrl.push(ReportUserPage, this.obj);
   }
 
