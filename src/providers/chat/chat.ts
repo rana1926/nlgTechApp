@@ -79,8 +79,7 @@ export class ChatProvider {
 								  id: temp.sentby,
 								  title: 'New message:',
 								  text: user.firstName +': '+temp.message,
-								  sound: this.plt.is('android') ? 'file://sound.mp3': 'file://beep.caf',
-								  data: { id: temp.sentby }
+								  sound: this.plt.is('android') ? 'file://sound.mp3': 'file://beep.caf'
 								});
 
 								//console.log('new msg::', temp);
@@ -108,8 +107,7 @@ export class ChatProvider {
 									  id: newId,
 									  title: 'New message:',
 									  text: user.firstName +': '+temp.message,
-									  sound: this.plt.is('android') ? 'file://sound.mp3': 'file://beep.caf',
-									  data: { id: newId }
+									  sound: this.plt.is('android') ? 'file://sound.mp3': 'file://beep.caf'
 									});
 
 									//console.log('new msg::', temp);
