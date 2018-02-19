@@ -15,13 +15,16 @@ export class ChatPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private _usersProvider: UsersProvider,
-    public chatservice: ChatProvider) {
+    public _chatProvider: ChatProvider) {
     this.getUsers();
+    this.currentUser = this._chatProvider.currentUserId;
   }
 
   getUsers() {
     this.usersObservable = this._usersProvider.getAttendees().subscribe(users => {
-      this.searchResults = this.users = users;
+      this.searchResults = this.users = users.filter((item)=>{
+        return item.uid !== this.currentUser;
+      });
     });
   }
 
@@ -40,7 +43,7 @@ export class ChatPage {
   }
 
   initChat(person) {
-    this.chatservice.initializeChat(person);
+    this._chatProvider.initializeChat(person);
     this.navCtrl.push('UserchatPage');
   }
 }
