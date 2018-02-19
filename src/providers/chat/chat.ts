@@ -9,11 +9,12 @@ export class ChatProvider {
 	fbUsers = firebase.database().ref('/users');
 	friend: any;
 	picUrl;
-	currentUserId = firebase.auth().currentUser.uid ? firebase.auth().currentUser.uid : '';
+	public currentUserId = '';
 	friendmessages = [];
 	constructor(public events: Events,
 		private localNotifications: LocalNotifications,
 		public plt: Platform) {
+		this.currentUserId = firebase.auth().currentUser.uid;
 	}
 
 	initializeChat(friend) {
