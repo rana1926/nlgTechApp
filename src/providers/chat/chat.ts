@@ -9,6 +9,7 @@ export class ChatProvider {
 	fbUsers = firebase.database().ref('/users');
 	friend: any;
 	picUrl;
+	currentUserId = firebase.auth().currentUser.uid;
 	friendmessages = [];
 	constructor(public events: Events, 
 		private localNotifications: LocalNotifications, 
