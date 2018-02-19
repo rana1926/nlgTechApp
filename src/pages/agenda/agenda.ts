@@ -10,7 +10,6 @@ import { ChatProvider } from '../../providers/chat/chat';
 })
 
 export class AgendaPage {
-  items
   day1Observable;
   day2Observable;
   day1List;
@@ -32,9 +31,6 @@ export class AgendaPage {
     this.day2Observable = this.fireDB.list('/agenda/day2').valueChanges();
     this.day1Observable.subscribe(res => this.day1List = res);
     this.day2Observable.subscribe(res => this.day2List = res);
-    this.fireDB.list('/agenda').valueChanges().subscribe(res => {
-      this.items = res;
-    });
 
     this._chatProvider.alertNewMessages();
   }

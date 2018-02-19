@@ -42,7 +42,7 @@ export class UserchatPage {
   }
 
   addmessage() {
-    if(this.newmessage != ''){
+    if (this.newmessage != '') {
       this.chatservice.addnewmessage(this.newmessage).then(() => {
         this.content.scrollToBottom();
         this.newmessage = '';

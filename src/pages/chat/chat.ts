@@ -12,6 +12,7 @@ export class ChatPage {
   private usersObservable: Subscription;
   users = [];
   searchResults = [];
+  currentUser;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private _usersProvider: UsersProvider,
