@@ -24,7 +24,7 @@ export class ChatPage {
   getUsers() {
     this.usersObservable = this._usersProvider.getAttendees().subscribe(users => {
       this.searchResults = this.users = users.filter((item)=>{
-        return item.uid !== this.currentUser;
+        return item['uid'] !== this.currentUser;
       });
     });
   }
