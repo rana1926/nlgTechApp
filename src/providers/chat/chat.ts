@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
 import firebase from 'firebase';
-import { Events } from 'ionic-angular';
+import { Events, Platform } from 'ionic-angular';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 @Injectable()
 export class ChatProvider {
 	firechats = firebase.database().ref('/chats');
+	fbUsers = firebase.database().ref('/users');
 	friend: any;
 	picUrl;
 	friendmessages = [];
-	constructor(public events: Events) {
+	constructor(public events: Events, 
+		private localNotifications: LocalNotifications, 
+		public plt: Platform) {
 	}
 
 	initializeChat(friend) {
@@ -64,11 +68,24 @@ export class ChatProvider {
 				usersIds = Object.keys(snapshot.val());
 				for(let id of usersIds){
 					this.firechats.child(firebase.auth().currentUser.uid).child(id).limitToLast(1).on('child_added', (snapshot) => {
+						let user;
 						temp = snapshot.val();
-						if(temp.sentby == id && temp.timestamp > start){
-							this.events.publish('newmessager_received');
-							//console.log('new msg::', temp);
-						}
+						this.fbUsers.child(temp.sentby).once('value',(snap)=>{
+							user = snap.val();
+						}).then(()=>{
+							if(temp.sentby == id && temp.timestamp > start){
+								this.events.publish('newmessage_received');
+								this.localNotifications.schedule({
+								  id: temp.sentby,
+								  title: 'New message:',
+								  text: user.firstName +': '+temp.message,
+								  sound: this.plt.is('android') ? 'file://sound.mp3': 'file://beep.caf',
+								  data: { id: temp.sentby }
+								});
+
+								//console.log('new msg::', temp);
+							}
+						});	
 					});
 				}
 			}
@@ -79,13 +96,25 @@ export class ChatProvider {
 				let snap = snapshot.val()
 				let snapId = Object.keys(snap)[0];
 				if(snap[snapId].timestamp > start){
-					console.log('done!!!', newId)
 					this.firechats.child(firebase.auth().currentUser.uid).child(newId).limitToLast(1).on('child_added', (snapshot) => {
+							let user;
 							temp = snapshot.val();
-							if(temp.sentby == newId && temp.timestamp > start){
-								this.events.publish('newmessager_received');
-								//console.log('new msg 2::', temp);
-							}
+							this.fbUsers.child(newId).once('value',(snap)=>{
+								user = snap.val();
+							}).then(()=>{
+								if(temp.sentby == newId && temp.timestamp > start){
+									this.events.publish('newmessage_received');
+									this.localNotifications.schedule({
+									  id: newId,
+									  title: 'New message:',
+									  text: user.firstName +': '+temp.message,
+									  sound: this.plt.is('android') ? 'file://sound.mp3': 'file://beep.caf',
+									  data: { id: newId }
+									});
+
+									//console.log('new msg::', temp);
+								}
+							});	
 						}
 					);
 				}				
