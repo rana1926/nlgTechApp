@@ -42,20 +42,21 @@ export class ChatProvider {
 
 	getmessages() {
 		let temp;
+		let lastMessage;
 		this.firechats.child(firebase.auth().currentUser.uid).child(this.friend.uid).once('value', (snapshot) => {
 			this.friendmessages = [];
 			temp = snapshot.val();
 			for (var tempkey in temp) {
 				this.friendmessages.push(temp[tempkey]);
+				lastMessage = tempkey;
 			}
 			this.events.publish('newmessage');
 		}).then(() => {
 			this.firechats.child(firebase.auth().currentUser.uid).child(this.friend.uid).limitToLast(1).on('child_added', (snapshot) => {
 				temp = snapshot.val();
-				if (temp.sentby == this.friend.uid) {
-					this.events.publish('newmessagereceived');
+				if(lastMessage != snapshot.key){
+					this.friendmessages.push(temp);
 				}
-				this.friendmessages.push(temp)
 			})
 		})
 	}
