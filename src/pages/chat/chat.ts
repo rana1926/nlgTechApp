@@ -13,6 +13,8 @@ export class ChatPage {
   users = [];
   searchResults = [];
   currentUser;
+  noMatch;
+  searchPhrase;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private _usersProvider: UsersProvider,
@@ -30,8 +32,9 @@ export class ChatPage {
   }
 
   findUsers(ev) {
-    var query = ev.target.value.toLowerCase();
-    var keys = ['firstName', 'lastName'];
+    this.searchPhrase = ev.target.value;
+    var query = ev.target.value ? ev.target.value.toLowerCase() : '';
+    var keys = ['firstName', 'lastName'];    
 
     if (query && query.trim() != '') {
       this.users = this.searchResults.filter((item) => {
@@ -41,6 +44,7 @@ export class ChatPage {
     } else {
       this.getUsers();
     }
+    this.noMatch = this.users.length == 0 && query;       
   }
 
   initChat(person) {
