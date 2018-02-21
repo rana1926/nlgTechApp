@@ -11,10 +11,20 @@ export class ChatProvider {
 	picUrl;
 	public currentUserId = '';
 	friendmessages = [];
+	users = [];
 	constructor(public events: Events,
 		private localNotifications: LocalNotifications,
 		public plt: Platform) {
 		this.currentUserId = firebase.auth().currentUser.uid;
+		firebase.database().ref('users').on('value', (snapshot)=>{
+			let temp = snapshot.val();
+			for(var tempkey in temp){
+				if(temp[tempkey].uid != this.currentUserId){
+					temp[tempkey].lastMessage = 0;
+					this.users.push(temp[tempkey]);
+				}
+			}
+		});
 	}
 
 	initializeChat(friend) {
@@ -42,19 +52,19 @@ export class ChatProvider {
 
 	getmessages() {
 		let temp;
-		let lastMessage;
+		let lastMessageKey;
 		this.firechats.child(firebase.auth().currentUser.uid).child(this.friend.uid).once('value', (snapshot) => {
 			this.friendmessages = [];
 			temp = snapshot.val();
 			for (var tempkey in temp) {
 				this.friendmessages.push(temp[tempkey]);
-				lastMessage = tempkey;
+				lastMessageKey = tempkey;
 			}
 			this.events.publish('newmessage');
 		}).then(() => {
 			this.firechats.child(firebase.auth().currentUser.uid).child(this.friend.uid).limitToLast(1).on('child_added', (snapshot) => {
 				temp = snapshot.val();
-				if(lastMessage != snapshot.key){
+				if(lastMessageKey != snapshot.key){
 					this.friendmessages.push(temp);
 				}
 			})
@@ -77,7 +87,13 @@ export class ChatProvider {
 							user = snap.val();
 						}).then(() => {
 							if (temp.sentby == id && temp.timestamp > start) {
-								this.events.publish('newmessage_received');
+								this.events.publish('newmessage_received', temp.sentby);
+								this.users.forEach(user=>{
+						          if(user.uid == temp.sentby){
+						            user.newmsg = true;
+						            user.lastMessage = temp.timestamp; 
+						          }
+						        });
 								this.localNotifications.schedule({
 									id: temp.sentby,
 									title: 'New message:',
@@ -110,13 +126,27 @@ export class ChatProvider {
 								}
 						}).then(() => {
 							if (temp.sentby == newId && temp.timestamp > start) {
-								this.events.publish('newmessage_received');
+								this.events.publish('newmessage_received', newId);
+								this.users.forEach(user=>{
+						          if(user.uid == newId){
+						            user.newmsg = true;
+						            user.lastMessage = temp.timestamp;
+						          }
+						        });
 								this.localNotifications.schedule(notification);
 							}
 						});
 					});
 				}
 			});
+		})
+	}
+
+	clearNewMsg(uid){
+		this.users.forEach((user)=>{
+			if(user.uid == uid){
+				return user.newmsg = false;
+			}
 		})
 	}
 }
