@@ -1,5 +1,5 @@
 import { Component, ViewChild, NgZone } from '@angular/core';
-import { IonicPage, NavController, NavParams, Events, Content, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, Events, Content, LoadingController } from 'ionic-angular';
 import { ChatProvider } from '../../providers/chat/chat';
 
 @Component({
@@ -36,9 +36,14 @@ export class UserchatPage {
             this.imgornot.push(false);
         }
       })
+    });
+    this.events.subscribe('newmessage_received', uid=>{
+      if(uid == this.friend.uid){
+        this.events.publish('clear_notification', uid);
+      }
     })
   }
-
+  
   addmessage() {
     if (this.newmessage != '') {
       this.chatservice.addnewmessage(this.newmessage).then(() => {
