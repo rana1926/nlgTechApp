@@ -25,6 +25,9 @@ export class ChatProvider {
 				}
 			}
 		});
+		this.events.subscribe('clear_notification', uid=>{
+			this.clearNewMsg(uid);			
+		});
 	}
 
 	initializeChat(friend) {
@@ -147,6 +150,6 @@ export class ChatProvider {
 			if(user.uid == uid){
 				return user.newmsg = false;
 			}
-		})
+		});
 	}
 }
