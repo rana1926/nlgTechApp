@@ -29,6 +29,9 @@ export class AgendaPage {
     this.events.subscribe('newmessage_received', () => {
       this.newMsg = true;
     });
+    this.events.subscribe('clear_notification', uid=>{
+      this.newMsg = false;
+    });
   }
 
   clearNotification(){
